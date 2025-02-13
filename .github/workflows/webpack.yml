@@ -9,7 +9,7 @@ on:
 permissions:
   contents: read
   pages: write
-  id-token: write  # ✅ Required for GitHub Pages deployment
+  id-token: write
 
 
 jobs:
