@@ -1,10 +1,16 @@
-name: NodeJS with Webpack
+name: Build and Deploy
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # ✅ Required for GitHub Pages deployment
+
 
 jobs:
   build:
