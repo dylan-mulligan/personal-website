@@ -1,50 +1,105 @@
----
-permalink: /index.html
----
+# Personal Portfolio
 
-# Getting Started with Create React App
+This project is a personal portfolio website built using [Create React App](https://create-react-app.dev/), [TypeScript](https://www.typescriptlang.org/), and [Material-UI](https://mui.com/). It is deployed as a static page using GitHub Pages and GitHub Actions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Live Site](#live-site)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Development Server](#running-the-development-server)
+- [Building for Production](#building-for-production)
+- [Deployment](#deployment)
+  - [GitHub Actions Workflow](#github-actions-workflow)
+- [License](#license)
 
-## Available Scripts
+## Live Site
 
-In the project directory, you can run:
+The latest build is automatically hosted via GitHub Actions at:  
+[https://dylan-mulligan.github.io/personal-website/index.html](https://dylan-mulligan.github.io/personal-website/index.html)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 14 or later recommended)
+- [npm](https://www.npmjs.com/)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/dylan-mulligan/personal-website.git
+   cd personal-website
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Due to potential peer dependency issues, use the legacy peer dependencies flag:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
-### `npm run eject`
+### Running the Development Server
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To start the development server:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser. The page will reload when you make changes.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Building for Production
 
-## Learn More
+To generate an optimized production build:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This creates a `build/` directory containing the optimized static files.
+
+## Deployment
+
+The project is automatically deployed to GitHub Pages using GitHub Actions. The deployment process is defined in the `.github/workflows/deploy.yml` file.
+
+### GitHub Actions Workflow
+
+The deployment workflow executes the following steps:
+
+1. **Checkout the repository:**
+   
+   Uses `actions/checkout@v2` to clone the repository.
+
+2. **Set up Node.js:**
+   
+   Uses `actions/setup-node@v2` to set up the Node.js environment.
+
+3. **Install dependencies:**
+   
+   Runs `npm install --legacy-peer-deps` to install project dependencies.
+
+4. **Build the application:**
+   
+   Runs `npm run build` to create an optimized production build.
+
+5. **Deploy to GitHub Pages:**
+   
+   Uses `peaceiris/actions-gh-pages@v3` to deploy the contents of the `build/` directory to the `gh-pages` branch, which GitHub Pages serves as the live site.
+
+### Manual Deployment
+
+If needed, you can manually deploy using the following command:
+
+```bash
+npm run build && npm run deploy
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
