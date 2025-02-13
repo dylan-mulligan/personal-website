@@ -1,4 +1,4 @@
-# Personal Portfolio
+# Personal Portfolio Website
 
 This project is a personal portfolio website built using [Create React App](https://create-react-app.dev/), [TypeScript](https://www.typescriptlang.org/), and [Material-UI](https://mui.com/). It is deployed as a static page using GitHub Pages and GitHub Actions.
 
