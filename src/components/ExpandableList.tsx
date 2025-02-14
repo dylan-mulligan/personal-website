@@ -1,35 +1,35 @@
 import React, { JSX, useState } from "react";
 import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip } from "@mui/material";
 
-interface WorkExperience {
-    company: string;
-    role: string;
+interface ExpandableItem {
+    title: string;
+    subtitle: string;
     details: string;
     technologies: { name: string; url: string }[];
 }
 
-interface WorkExperienceListProps {
-    experiences: WorkExperience[];
+interface ExpandableListProps {
+    items: ExpandableItem[];
 }
 
-const WorkExperienceList: React.FC<WorkExperienceListProps> = ({ experiences }): JSX.Element => {
-    const [expandedExperience, setExpandedExperience] = useState<number | null>(null);
+const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
+    const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
     const handleToggle = (index: number) => {
-        setExpandedExperience(expandedExperience === index ? null : index);
+        setExpandedItem(expandedItem === index ? null : index);
     };
 
     return (
         <List>
-            {experiences.map((experience, index) => (
+            {items.map((item, index) => (
                 <Box key={index}>
                     <ListItem
                         onClick={() => handleToggle(index)}
                         sx={{ cursor: "pointer", display: "flex", justifyContent: "space-between" }}
                     >
-                        <ListItemText primary={experience.company} secondary={experience.role} />
+                        <ListItemText primary={item.title} secondary={item.subtitle} />
                         <Box sx={{ display: "flex", gap: 1 }}>
-                            {experience.technologies.map((tech, techIndex) => (
+                            {item.technologies.map((tech, techIndex) => (
                                 <Chip
                                     key={techIndex}
                                     label={tech.name}
@@ -43,9 +43,9 @@ const WorkExperienceList: React.FC<WorkExperienceListProps> = ({ experiences }):
                             ))}
                         </Box>
                     </ListItem>
-                    <Collapse in={expandedExperience === index} timeout="auto" unmountOnExit>
+                    <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
-                            <Typography variant="body2">{experience.details}</Typography>
+                            <Typography variant="body2" textAlign="left">{item.details}</Typography>
                         </Box>
                     </Collapse>
                 </Box>
@@ -54,4 +54,4 @@ const WorkExperienceList: React.FC<WorkExperienceListProps> = ({ experiences }):
     );
 };
 
-export default WorkExperienceList;
+export default ExpandableList;
