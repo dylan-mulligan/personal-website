@@ -1,39 +1,58 @@
-import React, {JSX, useState} from "react";
-import { Box, Typography, List, ListItem, ListItemText, Collapse } from "@mui/material";
+import React, { JSX } from "react";
+import { Box, Typography } from "@mui/material";
+import ProjectList from "./ProjectList";
+import WorkExperienceList from "./WorkExperienceList";
 
-/**
- * Represents a project with a name, description, and details.
- */
-interface Project {
-    name: string;
-    description: string;
-    details: string;
-}
-
-/**
- * Main portfolio component displaying user information and key sections.
- *
- * @returns {JSX.Element} The portfolio component
- */
 const Portfolio: React.FC = (): JSX.Element => {
-    const [expandedProject, setExpandedProject] = useState<number | null>(null);
-
-    const projects: Project[] = [
+    const projects = [
         {
             name: "Automated SBOM Generation",
-            description: "Tool for generating SBOMs using Java and NLP techniques.",
-            details: "This project leverages Java's polymorphism and NLP techniques to extract and parse software bill of materials from repositories, helping organizations track dependencies more effectively."
+            description: "Developed tooling for generating SBOMs using Java and NLP techniques.",
+            details:
+                `This project leverages Java's polymorphism and NLP techniques 
+                to extract and parse software bill of materials from repositories, 
+                helping organizations track dependencies more effectively.`
         },
         {
-            name: "Vulnerability Detection System",
+            name: "National Vulnerability Intelligence Platform",
             description: "Security analysis and reporting tool for software dependencies.",
-            details: "A system designed to scan dependencies for known vulnerabilities, integrating with security databases to provide actionable remediation steps."
+            details:
+                `Developed scalable microservices, built a public/private repo scraping 
+                framework  for large-scale data ingestion, and implemented best practices 
+                for  version control and CI/CD to streamline deployments and testing.`
         }
     ];
 
-    const handleToggle = (index: number) => {
-        setExpandedProject(expandedProject === index ? null : index);
-    };
+    const experiences = [
+        {
+            company: "RIT Global Cybersecurity Institute",
+            role: "Software Security Engineer",
+            details:
+                `Orchestrated cross-functional teams, coordinating developers, analysts, 
+                and QA engineers for efficient workflows. Led a small development team 
+                to meet sprint and Scrum objectives, while directing the SDLC with best 
+                practices in system design, testing automation, and CI/CD for scalability 
+                and reliability.`,
+            technologies: [
+                { name: "PostgreSQL", url: "https://www.postgresql.org" },
+            ]
+        },
+        {
+            company: "Rochester Institute of Technology",
+            role: "Software Engineering Course Assistant",
+            details:
+                `Assisted students with software engineering web engineering through one-on-one 
+                support, office hours, and study sessions. Conducted code reviews and graded 
+                assignments, providing feedback to improve code quality and maintain best 
+                practices.`,
+            technologies: [
+                { name: "React", url: "https://reactjs.org/" },
+                { name: "Reactstrap", url: "https://reactstrap.github.io/?path=/story/home-installation--page" },
+                { name: "Node.js", url: "https://nodejs.org/" },
+                { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" }
+            ]
+        }
+    ];
 
     return (
         <Box
@@ -54,20 +73,11 @@ const Portfolio: React.FC = (): JSX.Element => {
             </Typography>
             <Box>
                 <Typography variant="h5" textAlign="center">Projects</Typography>
-                <List>
-                    {projects.map((project, index) => (
-                        <Box key={index}>
-                            <ListItem onClick={() => handleToggle(index)}>
-                                <ListItemText primary={project.name} secondary={project.description} />
-                            </ListItem>
-                            <Collapse in={expandedProject === index} timeout="auto" unmountOnExit>
-                                <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
-                                    <Typography variant="body2">{project.details}</Typography>
-                                </Box>
-                            </Collapse>
-                        </Box>
-                    ))}
-                </List>
+                <ProjectList projects={projects} />
+            </Box>
+            <Box>
+                <Typography variant="h5" textAlign="center">Work Experience</Typography>
+                <WorkExperienceList experiences={experiences} />
             </Box>
         </Box>
     );
