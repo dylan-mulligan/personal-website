@@ -27,7 +27,6 @@
     "subtitle": "Security analysis and reporting tool for software dependencies",
     "details": "Developed a security intelligence platform to analyze, track, and report vulnerabilities in software dependencies. Designed a microservices-based architecture with Spring Boot to enable modular and scalable data processing. Built an automated repository scanning framework to detect vulnerabilities in public and private repositories, integrating real-time vulnerability databases. Utilized MySQL for structured data storage and optimized queries for fast data retrieval. Containerized services using Docker and orchestrated deployments with Kubernetes for high availability and fault tolerance.",
     "technologies": [
-      { "name": "Microservices", "url": "https://microservices.io/" },
       { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
       { "name": "MySQL", "url": "https://www.mysql.com" },
       { "name": "Docker", "url": "https://www.docker.com/" },
