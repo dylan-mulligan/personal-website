@@ -4,7 +4,7 @@
     "subtitle": "Software Security Engineer",
     "details": "Led the development of security-focused software solutions, including an automated SBOM generation tool and the National Vulnerability Intelligence Platform. Designed and implemented scalable microservices using Java Spring Boot, enabling efficient analysis and reporting of software dependencies. Optimized PostgreSQL queries and database schemas to enhance data retrieval performance. Developed robust end-to-end testing suites with JUnit and Selenium to ensure system reliability. Established CI/CD pipelines using Docker and GitHub Actions to automate testing and deployments, greatly reducing wasted development and integration time. Collaborated with cross-functional teams to enforce security best practices throughout the SDLC.",
     "technologies": [
-      { "name": "PostgreSQL", "url": "https://www.postgresql.org" },
+      { "name": "PGSQL", "url": "https://www.postgresql.org" },
       { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
       { "name": "Docker", "url": "https://www.docker.com/" },
       { "name": "JUnit", "url": "https://junit.org/junit5/" },

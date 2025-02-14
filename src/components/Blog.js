@@ -6,6 +6,7 @@ import AppAppBar from './AppAppBar';
 import MainContent from './MainContent';
 import Latest from './Latest';
 import Footer from './Footer';
+import Portfolio from "./Portfolio";
 
 export default function Blog(props) {
   return (
@@ -17,8 +18,7 @@ export default function Blog(props) {
         component="main"
         sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
       >
-        <MainContent />
-        <Latest />
+        <Portfolio />
       </Container>
       <Footer />
     </AppTheme>

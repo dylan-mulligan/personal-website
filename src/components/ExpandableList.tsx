@@ -1,5 +1,6 @@
 import React, { JSX, useState } from "react";
 import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 
 interface ExpandableItem {
     title: string;
@@ -13,6 +14,7 @@ interface ExpandableListProps {
 }
 
 const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
+    const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
 
     const handleToggle = (index: number) => {
@@ -39,12 +41,19 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                     variant="outlined"
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    sx={{
+                                        border: `1px solid ${theme.palette.divider}`,
+                                        padding: 2,
+                                        marginBottom: 2,
+                                        backgroundColor: theme.palette.background.paper,
+                                        color: theme.palette.text.primary,
+                                    }}
                                 />
                             ))}
                         </Box>
                     </ListItem>
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
-                        <Box sx={{ padding: 2, backgroundColor: "#f5f5f5", borderRadius: 2 }}>
+                        <Box sx={{ padding: 2, borderRadius: 2 }}>
                             <Typography variant="body2" textAlign="left">{item.details}</Typography>
                         </Box>
                     </Collapse>
