@@ -9,7 +9,9 @@
       { "name": "Material-UI", "url": "https://mui.com/" },
       { "name": "CI/CD", "url": "https://github.com/features/actions" },
       { "name": "GH Pages", "url": "https://pages.github.com/" }
-    ]
+    ],
+    "startDate": "Jan 2025",
+    "endDate": "Present"
   },
   {
     "title": "Single Pane of Glass - Honeywell",
@@ -20,19 +22,9 @@
       { "name": "JavaScript", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
       { "name": "Docker", "url": "https://www.docker.com/" },
       { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ]
-  },
-  {
-    "title": "Automated SBOM Generation",
-    "subtitle": "Tooling for automated SBOM generation using Java and NLP techniques",
-    "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
-    "technologies": [
-      { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
-      { "name": "Maven", "url": "https://maven.apache.org/" },
-      { "name": "NLP", "url": "https://en.wikipedia.org/wiki/Natural_language_processing" },
-      { "name": "JUnit", "url": "https://junit.org/junit5/" },
-      { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ]
+    ],
+    "startDate": "Aug 2024",
+    "endDate": "Present"
   },
   {
     "title": "National Vulnerability Intelligence Platform",
@@ -44,6 +36,22 @@
       { "name": "Docker", "url": "https://www.docker.com/" },
       { "name": "Kubernetes", "url": "https://kubernetes.io/" },
       { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ]
+    ],
+    "startDate": "May 2023",
+    "endDate": "March 2024"
+  },
+  {
+    "title": "Automated SBOM Generation",
+    "subtitle": "Tooling for automated SBOM generation using Java and NLP techniques",
+    "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
+    "technologies": [
+      { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
+      { "name": "Maven", "url": "https://maven.apache.org/" },
+      { "name": "NLP", "url": "https://en.wikipedia.org/wiki/Natural_language_processing" },
+      { "name": "JUnit", "url": "https://junit.org/junit5/" },
+      { "name": "CI/CD", "url": "https://github.com/features/actions" }
+    ],
+    "startDate": "Dec 2022",
+    "endDate": "May 2023"
   }
 ]
