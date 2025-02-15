@@ -31,6 +31,7 @@ const Portfolio: React.FC = (): JSX.Element => {
                 display: "grid",
                 gridTemplateColumns: "1fr",
                 gap: 2,
+                height: "100%",
                 width: "100%",
                 margin: "auto",
                 padding: 4,
