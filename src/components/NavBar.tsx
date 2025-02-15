@@ -13,6 +13,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
 import type {} from '@mui/material/themeCssVarsAugmentation';
+import Typography from "@mui/material/Typography";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -50,9 +51,16 @@ export default function NavBar() {
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
-          <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', px: 0 }}>
             <Logo />
           </Box>
+          <Typography
+              variant="h3"
+              component="div"
+              sx={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', display: { xs: 'none', sm: 'block'} }}
+          >
+            Dylan Mulligan
+          </Typography>
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },

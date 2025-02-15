@@ -34,17 +34,20 @@ const Portfolio: React.FC = (): JSX.Element => {
                 height: "100%",
                 width: "100%",
                 margin: "auto",
-                padding: 4,
+                padding: 1,
             }}
         >
-            <Typography variant="h2" component="h1" textAlign="center">
-                Dylan Mulligan
+            <Typography variant="h5" textAlign="center">
+                Cloud & Security Enthusiast ☁️🔒
+            </Typography>
+            <Typography variant="h5" textAlign="center">
+                Backend Brain 🧠, Frontend Flair 🎉
+            </Typography>
+            <Typography variant="h5" textAlign="center">
+                Full-Stack Architect 🛠️
             </Typography>
             <Typography variant="body1" textAlign="center">
                 Pushing to Prod & Hoping for the Best 🚀🔥
-            </Typography>
-            <Typography variant="body1" textAlign="center">
-                <b>Full-Stack Builder</b> | <b>Backend Brain</b>, <b>Frontend Flair</b> | <b>Cloud & Security Enthusiast</b>
             </Typography>
             <Box>
                 <Typography variant="h5" textAlign="left">Work Experience</Typography>
