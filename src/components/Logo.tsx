@@ -10,7 +10,7 @@ import IconButton from "@mui/material/IconButton";
  */
 export default function Logo() {
   const onClick = () => {
-    window.location.href = "/";
+    window.location.href = "/personal-website/index.html";
   }
 
   return (
