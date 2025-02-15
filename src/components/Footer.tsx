@@ -30,7 +30,7 @@ export default function Footer() {
           alignItems: 'center',
           gap: { xs: 4, sm: 8 },
           textAlign: { sm: 'center', md: 'left' },
-          paddingBottom: 4
+          paddingBottom: 8
         }}
       >
         <Box
@@ -42,7 +42,6 @@ export default function Footer() {
           }}
         >
           <div>
-            <Copyright />
           </div>
           <Stack
             direction="row"
@@ -52,7 +51,7 @@ export default function Footer() {
           >
             <IconButton
               color="inherit"
-              size="small"
+              size="large"
               href="https://github.com/dylan-mulligan/personal-website"
               aria-label="GitHub"
               sx={{ alignSelf: 'center' }}
@@ -61,7 +60,7 @@ export default function Footer() {
             </IconButton>
             <IconButton
               color="inherit"
-              size="small"
+              size="large"
               href="https://www.linkedin.com/in/dylan-mulligan-se/"
               aria-label="LinkedIn"
               sx={{ alignSelf: 'center' }}

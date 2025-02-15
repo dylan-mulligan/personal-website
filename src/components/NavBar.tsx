@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
+import type {} from '@mui/material/themeCssVarsAugmentation';
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
