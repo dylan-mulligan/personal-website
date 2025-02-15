@@ -1,5 +1,17 @@
 [
   {
+    "title": "Personal Portfolio Website",
+    "subtitle": "A responsive personal portfolio website showcasing projects and skills",
+    "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a GitHub Actions workflow for continuous integration and deployment, automating the build and deployment process to GitHub Pages. Followed best practices in code organization and version control to maintain a clean and maintainable codebase.",
+    "technologies": [
+      { "name": "React", "url": "https://reactjs.org/" },
+      { "name": "TypeScript", "url": "https://www.typescriptlang.org/" },
+      { "name": "Material-UI", "url": "https://mui.com/" },
+      { "name": "CI/CD", "url": "https://github.com/features/actions" },
+      { "name": "GH Pages", "url": "https://pages.github.com/" }
+    ]
+  },
+  {
     "title": "Single Pane of Glass - Honeywell",
     "subtitle": "Full-stack web application for centralizing data visualization across multiple cloud data sources",
     "details": "Designed and developed a full-stack web application that aggregates and visualizes data from multiple cloud providers, enabling real-time monitoring and analysis. Engineered a scalable microservices architecture using the MERN stack to ensure seamless integration of backend services with an interactive frontend. Enhanced a data pipeline framework to ingest and process large-scale data sources. Optimized API performance and database queries to handle high-throughput data streams efficiently. Established CI/CD pipelines with Docker and GitHub Actions to enable rapid and reliable deployments.",
