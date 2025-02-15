@@ -1,5 +1,5 @@
 import React, { JSX } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import ExpandableList from "./ExpandableList";
 
 // Safe import in case files are missing or cannot be parsed
@@ -25,6 +25,7 @@ try {
  * @returns {JSX.Element} The rendered Portfolio component.
  */
 const Portfolio: React.FC = (): JSX.Element => {
+    const theme = useTheme();
     return (
         <Box
             sx={{
@@ -37,6 +38,19 @@ const Portfolio: React.FC = (): JSX.Element => {
                 padding: 1,
             }}
         >
+            <Typography
+                variant="h2"
+                component="div"
+                sx={{
+                    textAlign: "center",
+                    paddingBottom: 1,
+                    display: { xs: 'block', sm: 'none'},
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.text.primary,
+                }}
+            >
+                Dylan Mulligan
+            </Typography>
             <Typography variant="h5" textAlign="center">
                 Cloud & Security Enthusiast ☁️🔒
             </Typography>
