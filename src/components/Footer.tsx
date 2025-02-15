@@ -52,7 +52,7 @@ export default function Footer() {
             <IconButton
               color="inherit"
               size="large"
-              href="https://github.com/dylan-mulligan/personal-website"
+              href="https://github.com/dylan-mulligan/"
               aria-label="GitHub"
               sx={{ alignSelf: 'center' }}
             >
