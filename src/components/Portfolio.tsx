@@ -1,5 +1,5 @@
 import React, { JSX } from "react";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import ExpandableList from "./ExpandableList";
 
 // Safe import in case files are missing or cannot be parsed
@@ -26,6 +26,9 @@ try {
  */
 const Portfolio: React.FC = (): JSX.Element => {
     const theme = useTheme();
+
+    const scalingVariant = useMediaQuery(theme.breakpoints.down("sm")) ? "subtitle1" : "h5";
+
     return (
         <Box
             sx={{
@@ -51,16 +54,16 @@ const Portfolio: React.FC = (): JSX.Element => {
             >
                 Dylan Mulligan
             </Typography>
-            <Typography variant="h5" textAlign="center">
+            <Typography variant={scalingVariant} textAlign="center">
                 Cloud & Security Enthusiast ☁️🔒
             </Typography>
-            <Typography variant="h5" textAlign="center">
+            <Typography variant={scalingVariant} textAlign="center">
                 Backend Brain 🧠, Frontend Flair 🎉
             </Typography>
-            <Typography variant="h5" textAlign="center">
+            <Typography variant={scalingVariant} textAlign="center">
                 Full-Stack Architect 🛠️
             </Typography>
-            <Typography variant="body1" textAlign="center">
+            <Typography variant="body2" textAlign="center">
                 Pushing to Prod & Hoping for the Best 🚀🔥
             </Typography>
             <Box>
