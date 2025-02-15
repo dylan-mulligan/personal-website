@@ -20,11 +20,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isXSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const chipStyle = {
         border: `1px solid ${theme.palette.divider}`,
-        padding: 2,
-        marginBottom: 2,
+        padding: 1.5,
+        marginBottom: 1,
         backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.primary,
     };
@@ -54,8 +55,8 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                     >
                         <ListItemText primary={item.title} secondary={item.subtitle} />
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                            {item.startDate && item.endDate &&
-                                <Typography variant="body2">
+                            {item.startDate && item.endDate && !isXSmallScreen &&
+                                <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
                                     {item.startDate} - {item.endDate}
                                 </Typography>
                             }
@@ -81,7 +82,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
                             {isSmallScreen && (
-                                <Box sx={{ display: "flex", gap: 1 }}>
+                                <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
                                     {item.technologies.map((tech, techIndex) => (
                                         <Chip
                                             key={techIndex}
