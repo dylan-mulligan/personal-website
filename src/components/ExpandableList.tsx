@@ -31,13 +31,22 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         setExpandedItem(expandedItem === index ? null : index);
     };
 
+    const listItemStyle = {
+        cursor: "pointer",
+        display: "flex",
+        justifyContent: "space-between",
+        border: `1px solid ${theme.palette.divider}`,
+        borderRadius: 2,
+        marginBottom: 1
+    }
+
     return (
         <List>
             {items.map((item, index) => (
                 <Box key={index}>
                     <ListItem
                         onClick={() => handleToggle(index)}
-                        sx={{ cursor: "pointer", display: "flex", justifyContent: "space-between" }}
+                        sx={listItemStyle}
                     >
                         <ListItemText primary={item.title} secondary={item.subtitle} />
                         {!isSmallScreen && (
@@ -59,7 +68,24 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                         )}
                     </ListItem>
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
-                        <Box sx={{ padding: 2, borderRadius: 2 }}>
+                        <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
+                            {isSmallScreen && (
+                                <Box sx={{ display: "flex", gap: 1 }}>
+                                    {item.technologies.map((tech, techIndex) => (
+                                        <Chip
+                                            key={techIndex}
+                                            label={tech.name}
+                                            component="a"
+                                            href={tech.url}
+                                            clickable
+                                            variant="outlined"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={chipStyle}
+                                        />
+                                    ))}
+                                </Box>
+                            )}
                             <Typography variant="body2" textAlign="left">{item.details}</Typography>
                         </Box>
                     </Collapse>
