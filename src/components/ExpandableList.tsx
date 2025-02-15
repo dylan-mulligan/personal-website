@@ -8,6 +8,8 @@ interface ExpandableItem {
     subtitle: string;
     details: string;
     technologies: { name: string; url: string }[];
+    startDate: string;
+    endDate: string;
 }
 
 interface ExpandableListProps {
@@ -35,10 +37,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         cursor: "pointer",
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         border: `1px solid ${theme.palette.divider}`,
         borderRadius: 2,
-        marginBottom: 1
-    }
+        marginBottom: 1,
+        padding: 2
+    };
 
     return (
         <List>
@@ -49,23 +53,30 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                         sx={listItemStyle}
                     >
                         <ListItemText primary={item.title} secondary={item.subtitle} />
-                        {!isSmallScreen && (
-                            <Box sx={{ display: "flex", gap: 1 }}>
-                                {item.technologies.map((tech, techIndex) => (
-                                    <Chip
-                                        key={techIndex}
-                                        label={tech.name}
-                                        component="a"
-                                        href={tech.url}
-                                        clickable
-                                        variant="outlined"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        sx={chipStyle}
-                                    />
-                                ))}
-                            </Box>
-                        )}
+                        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
+                            {item.startDate && item.endDate &&
+                                <Typography variant="body2">
+                                    {item.startDate} - {item.endDate}
+                                </Typography>
+                            }
+                            {!isSmallScreen && (
+                                <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
+                                    {item.technologies.map((tech, techIndex) => (
+                                        <Chip
+                                            key={techIndex}
+                                            label={tech.name}
+                                            component="a"
+                                            href={tech.url}
+                                            clickable
+                                            variant="outlined"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={chipStyle}
+                                        />
+                                    ))}
+                                </Box>
+                            )}
+                        </Box>
                     </ListItem>
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
