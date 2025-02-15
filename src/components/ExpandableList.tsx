@@ -81,6 +81,11 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                     </ListItem>
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
+                            {isXSmallScreen &&
+                                <Typography variant="body2" sx={{ fontWeight: "bold", textAlign: "left", whiteSpace: "nowrap", marginBottom: 2 }}>
+                                    {item.startDate} - {item.endDate}
+                                </Typography>
+                            }
                             {isSmallScreen && (
                                 <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
                                     {item.technologies.map((tech, techIndex) => (
