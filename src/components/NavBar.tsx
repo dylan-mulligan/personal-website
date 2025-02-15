@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,6 +13,7 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
 import type {} from '@mui/material/themeCssVarsAugmentation';
+import Typography from "@mui/material/Typography";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -31,6 +32,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function NavBar() {
+  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -50,9 +52,23 @@ export default function NavBar() {
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
-          <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', px: 0 }}>
             <Logo />
           </Box>
+          <Typography
+              variant="h3"
+              component="div"
+              sx={{
+                position: 'absolute',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                display: { xs: 'none', sm: 'block'},
+                backgroundColor: theme.palette.background.paper,
+                color: theme.palette.text.primary,
+              }}
+          >
+            Dylan Mulligan
+          </Typography>
           <Box
             sx={{
               display: { xs: 'none', sm: 'flex' },

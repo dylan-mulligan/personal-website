@@ -10,8 +10,9 @@
       { "name": "CI/CD", "url": "https://github.com/features/actions" },
       { "name": "GH Pages", "url": "https://pages.github.com/" }
     ],
-    "startDate": "Feb 2025",
-    "endDate": "Present"
+    "startDate": "Jan 2025",
+    "endDate": "Present",
+    "projectUrl": "https://github.com/dylan-mulligan/personal-website"
   },
   {
     "title": "Single Pane of Glass - Honeywell",
@@ -31,7 +32,7 @@
     "subtitle": "Security analysis and reporting for software dependencies",
     "details": "Developed a security intelligence platform to analyze, track, and report vulnerabilities in software dependencies. Designed a microservices-based architecture with Spring Boot to enable modular and scalable data processing. Built an automated repository scanning framework to detect vulnerabilities in public and private repositories, integrating real-time vulnerability databases. Utilized MySQL for structured data storage and optimized queries for fast data retrieval. Containerized services using Docker and orchestrated deployments with Kubernetes for high availability and fault tolerance.",
     "technologies": [
-      { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
+      { "name": "Spring Boot", "url": "https://spring.io/projects/spring-boot" },
       { "name": "MySQL", "url": "https://www.mysql.com" },
       { "name": "Docker", "url": "https://www.docker.com/" },
       { "name": "Kubernetes", "url": "https://kubernetes.io/" },
@@ -45,25 +46,13 @@
     "subtitle": "Automated SBOM generation using Java and NLP techniques",
     "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
     "technologies": [
-      { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
+      { "name": "Spring Boot", "url": "https://spring.io/projects/spring-boot" },
       { "name": "Maven", "url": "https://maven.apache.org/" },
       { "name": "NLP", "url": "https://en.wikipedia.org/wiki/Natural_language_processing" },
       { "name": "JUnit", "url": "https://junit.org/junit5/" },
       { "name": "CI/CD", "url": "https://github.com/features/actions" }
     ],
     "startDate": "Dec 2022",
-    "endDate": "May 2023"
-  },
-  {
-    "title": "Multi-User Dungeon",
-    "subtitle": "Text-based multiplayer adventure game with a modular save system",
-    "details": "Designed and developed a command-line interface (CLI) for seamless system-wide user interaction, implementing the Command design pattern for extensibility. Built a robust snapshot system enabling full and quick saving/loading of all game assets, utilizing the Memento design pattern to track game states efficiently. Ensured all game entities, including maps, rooms, enemies, chests, and players, were JSON-serializable by default using Jackson for streamlined data persistence. Collaborated in a team of five, applying object-oriented design principles and software design patterns to maintain modularity and scalability.",
-    "technologies": [
-      { "name": "Java", "url": "https://www.java.com" },
-      { "name": "Jackson ORM", "url": "https://github.com/FasterXML/jackson" },
-      { "name": "Design Patterns", "url": "https://en.wikipedia.org/wiki/Design_Patterns" }
-    ],
-    "startDate": "Jan 2022",
     "endDate": "May 2023"
   }
 ]

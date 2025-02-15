@@ -1,7 +1,8 @@
 import React, { JSX, useState } from "react";
-import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip } from "@mui/material";
+import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip, IconButton } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
+import FacebookIcon from "@mui/icons-material/GitHub";
 
 interface ExpandableItem {
     title: string;
@@ -10,6 +11,7 @@ interface ExpandableItem {
     technologies: { name: string; url: string }[];
     startDate: string;
     endDate: string;
+    projectUrl?: string;
 }
 
 interface ExpandableListProps {
@@ -53,7 +55,23 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                         onClick={() => handleToggle(index)}
                         sx={listItemStyle}
                     >
-                        <ListItemText primary={item.title} secondary={item.subtitle} />
+                        <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
+                            <ListItemText primary={item.title} secondary={item.subtitle} />
+                            {/*TODO: Figure out how to make this look good for desktop sizes*/}
+                            {item.projectUrl && isSmallScreen && !isSmallScreen &&
+                                <IconButton
+                                    color="inherit"
+                                    size="medium"
+                                    href={item.projectUrl}
+                                    target="_blank"
+                                    aria-label="GitHub"
+                                    sx={{ marginRight: 1 }}
+                                    onClick={(event) => event.stopPropagation()}
+                                >
+                                    <FacebookIcon />
+                                </IconButton>
+                            }
+                        </Box>
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                             {item.startDate && item.endDate && !isXSmallScreen &&
                                 <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
@@ -73,6 +91,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={chipStyle}
+                                            onClick={(event) => event.stopPropagation()}
                                         />
                                     ))}
                                 </Box>
@@ -99,6 +118,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             sx={chipStyle}
+                                            onClick={(event) => event.stopPropagation()}
                                         />
                                     ))}
                                 </Box>
