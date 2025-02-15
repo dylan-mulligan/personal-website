@@ -63,7 +63,6 @@ export default function NavBar() {
                 left: '50%',
                 transform: 'translateX(-50%)',
                 display: { xs: 'none', sm: 'block'},
-                backgroundColor: theme.palette.background.default,
                 color: theme.palette.text.primary,
               }}
           >
