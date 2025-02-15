@@ -1,7 +1,7 @@
 [
   {
     "title": "Personal Portfolio Website",
-    "subtitle": "A responsive personal portfolio website showcasing projects and skills",
+    "subtitle": "Responsive personal portfolio website showcasing projects and skills",
     "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a GitHub Actions workflow for continuous integration and deployment, automating the build and deployment process to GitHub Pages. Followed best practices in code organization and version control to maintain a clean and maintainable codebase.",
     "technologies": [
       { "name": "React", "url": "https://reactjs.org/" },
@@ -15,20 +15,20 @@
   },
   {
     "title": "Single Pane of Glass - Honeywell",
-    "subtitle": "Full-stack web application for centralizing data visualization across multiple cloud data sources",
+    "subtitle": "Web app for centralizing data visualization across cloud data sources",
     "details": "Designed and developed a full-stack web application that aggregates and visualizes data from multiple cloud providers, enabling real-time monitoring and analysis. Engineered a scalable microservices architecture using the MERN stack to ensure seamless integration of backend services with an interactive frontend. Enhanced a data pipeline framework to ingest and process large-scale data sources. Optimized API performance and database queries to handle high-throughput data streams efficiently. Established CI/CD pipelines with Docker and GitHub Actions to enable rapid and reliable deployments.",
     "technologies": [
       { "name": "MERN", "url": "https://www.mongodb.com/en-us/resources/languages/mern-stack" },
-      { "name": "JavaScript", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+      { "name": "LEG", "url": "https://grafana.com/grafana/dashboards/1004-elasticsearch/" },
       { "name": "Docker", "url": "https://www.docker.com/" },
-      { "name": "CI/CD", "url": "https://github.com/features/actions" }
+      { "name": "Kubernetes", "url": "https://kubernetes.io" }
     ],
     "startDate": "Aug 2024",
     "endDate": "Present"
   },
   {
     "title": "National Vulnerability Intelligence Platform",
-    "subtitle": "Security analysis and reporting tool for software dependencies",
+    "subtitle": "Security analysis and reporting for software dependencies",
     "details": "Developed a security intelligence platform to analyze, track, and report vulnerabilities in software dependencies. Designed a microservices-based architecture with Spring Boot to enable modular and scalable data processing. Built an automated repository scanning framework to detect vulnerabilities in public and private repositories, integrating real-time vulnerability databases. Utilized MySQL for structured data storage and optimized queries for fast data retrieval. Containerized services using Docker and orchestrated deployments with Kubernetes for high availability and fault tolerance.",
     "technologies": [
       { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },
@@ -42,7 +42,7 @@
   },
   {
     "title": "Automated SBOM Generation",
-    "subtitle": "Tooling for automated SBOM generation using Java and NLP techniques",
+    "subtitle": "Automated SBOM generation using Java and NLP techniques",
     "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
     "technologies": [
       { "name": "Java Spring Boot", "url": "https://spring.io/projects/spring-boot" },

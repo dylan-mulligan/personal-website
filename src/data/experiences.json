@@ -10,7 +10,9 @@
       { "name": "JUnit", "url": "https://junit.org/junit5/" },
       { "name": "Selenium", "url": "https://www.selenium.dev/" },
       { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ]
+    ],
+    "startDate": "Dec 2022",
+    "endDate": "May 2024"
   },
   {
     "title": "Rochester Institute of Technology",
@@ -22,6 +24,8 @@
       { "name": "Node.js", "url": "https://nodejs.org/" },
       { "name": "JavaScript", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
       { "name": "MongoDB", "url": "https://www.mongodb.com/" }
-    ]
+    ],
+    "startDate": "Aug 2022",
+    "endDate": "Dec 2022"
   }
 ]
