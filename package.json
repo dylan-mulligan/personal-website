@@ -8,6 +8,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.4",
     "@mui/material": "^6.4.4",
+    "@tabler/icons-react": "^3.30.0",
     "@testing-library/react": "^16.2.0",
     "cra-template-typescript": "1.2.0",
     "markdown-to-jsx": "^7.7.3",

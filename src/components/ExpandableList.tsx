@@ -1,14 +1,28 @@
-import React, { JSX, useState } from "react";
-import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip, IconButton } from "@mui/material";
+import React, { JSX, useState, useEffect } from "react";
+import {Box, List, ListItem, ListItemText, Collapse, Typography, Chip, IconButton} from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
-import FacebookIcon from "@mui/icons-material/GitHub";
+import technologiesData from '../data/technologies.json';
+import {
+    IconAi,
+    IconBrandChrome,
+    IconBrandDocker,
+    IconBrandGithub,
+    IconBrandJavascript,
+    IconBrandMongodb,
+    IconBrandMysql,
+    IconBrandNodejs,
+    IconBrandReact,
+    IconBrandTypescript,
+    IconFileUnknown,
+    IconTestPipe
+} from '@tabler/icons-react';
 
 interface ExpandableItem {
     title: string;
     subtitle: string;
     details: string;
-    technologies: { name: string; url: string }[];
+    technologies: string[];
     startDate: string;
     endDate: string;
     projectUrl?: string;
@@ -18,19 +32,40 @@ interface ExpandableListProps {
     items: ExpandableItem[];
 }
 
+interface Technology {
+    name: string;
+    url: string;
+}
+
 const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isXSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const [technologies, setTechnologies] = useState<Technology[]>([]);
 
-    const chipStyle = {
-        border: `1px solid ${theme.palette.divider}`,
-        padding: 1.5,
-        marginBottom: 1,
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
-    };
+    useEffect(() => {
+        setTechnologies(technologiesData);
+    }, []);
+
+    const chipStyle = (expandOnHover: boolean) => {
+        return {
+            border: `1px solid ${theme.palette.divider}`,
+            padding: 1.5,
+            marginBottom: 1,
+            backgroundColor: theme.palette.background.paper,
+            color: theme.palette.text.primary,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            '& .MuiChip-label': {
+                display: expandOnHover ? 'none' : 'block',
+            },
+            '&:hover .MuiChip-label': {
+                display: expandOnHover ? 'block' : 'none',
+            },
+        };
+    }
 
     const handleToggle = (index: number) => {
         setExpandedItem(expandedItem === index ? null : index);
@@ -47,6 +82,55 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         padding: 2
     };
 
+    const getTechnologyDetails = (name: string) => {
+        return technologies.find(tech => tech.name === name);
+    };
+
+    const getIcon = (iconName: string) => {
+        switch (iconName) {
+            case "React":
+                return <IconBrandReact/>;
+            case "Typescript":
+                return <IconBrandTypescript/>;
+            case "Material-UI":
+                return <IconFileUnknown/>;
+            case "CI/CD":
+                return <IconBrandGithub/>;
+            case "GH Pages":
+                return <IconBrandGithub/>;
+            case "MERN":
+                return <IconBrandMongodb/>;
+            case "LEG":
+                return <IconFileUnknown/>;
+            case "Kubernetes":
+                return <IconFileUnknown/>;
+            case "Spring Boot":
+                return <IconFileUnknown/>;
+            case "MySQL":
+                return <IconBrandMysql/>;
+            case "Maven":
+                return <IconFileUnknown/>;
+            case "NLP":
+                return <IconAi/>;
+            case "JUnit":
+                return <IconTestPipe/>;
+            case "PGSQL":
+                return <IconFileUnknown/>;
+            case "Selenium":
+                return <IconBrandChrome/>;
+            case "Node.js":
+                return <IconBrandNodejs/>;
+            case "JavaScript":
+                return <IconBrandJavascript/>;
+            case "Docker":
+                return <IconBrandDocker/>;
+            case "MongoDB":
+                return <IconBrandMongodb/>;
+            default:
+                return <IconFileUnknown/>;
+        }
+    }
+
     return (
         <List>
             {items.map((item, index) => (
@@ -57,7 +141,6 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                     >
                         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
                             <ListItemText primary={item.title} secondary={item.subtitle} />
-                            {/*TODO: Figure out how to make this look good for desktop sizes*/}
                             {item.projectUrl && isSmallScreen && !isSmallScreen &&
                                 <IconButton
                                     color="inherit"
@@ -68,7 +151,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                     sx={{ marginRight: 1 }}
                                     onClick={(event) => event.stopPropagation()}
                                 >
-                                    <FacebookIcon />
+                                    <IconBrandGithub />
                                 </IconButton>
                             }
                         </Box>
@@ -80,20 +163,24 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             }
                             {!isSmallScreen && (
                                 <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
-                                    {item.technologies.map((tech, techIndex) => (
-                                        <Chip
-                                            key={techIndex}
-                                            label={tech.name}
-                                            component="a"
-                                            href={tech.url}
-                                            clickable
-                                            variant="outlined"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            sx={chipStyle}
-                                            onClick={(event) => event.stopPropagation()}
-                                        />
-                                    ))}
+                                    {item.technologies.map((techName, techIndex) => {
+                                        const tech = getTechnologyDetails(techName);
+                                        return tech ? (
+                                            <Chip
+                                                key={techIndex}
+                                                label={tech.name}
+                                                component="a"
+                                                icon={getIcon(tech.name)}
+                                                href={tech.url}
+                                                clickable
+                                                variant="outlined"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                sx={chipStyle(true)}
+                                                onClick={(event) => event.stopPropagation()}
+                                            />
+                                        ) : null;
+                                    })}
                                 </Box>
                             )}
                         </Box>
@@ -107,20 +194,24 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             }
                             {isSmallScreen && (
                                 <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
-                                    {item.technologies.map((tech, techIndex) => (
-                                        <Chip
-                                            key={techIndex}
-                                            label={tech.name}
-                                            component="a"
-                                            href={tech.url}
-                                            clickable
-                                            variant="outlined"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            sx={chipStyle}
-                                            onClick={(event) => event.stopPropagation()}
-                                        />
-                                    ))}
+                                    {item.technologies.map((techName, techIndex) => {
+                                        const tech = getTechnologyDetails(techName);
+                                        return tech ? (
+                                            <Chip
+                                                key={techIndex}
+                                                icon={getIcon(tech.name)}
+                                                label={tech.name}
+                                                component="a"
+                                                href={tech.url}
+                                                clickable
+                                                variant="outlined"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                sx={chipStyle(false)}
+                                                onClick={(event) => event.stopPropagation()}
+                                            />
+                                        ) : null;
+                                    })}
                                 </Box>
                             )}
                             <Typography variant="body2" textAlign="left">{item.details}</Typography>

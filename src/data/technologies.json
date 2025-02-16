@@ -1,0 +1,78 @@
+[
+  {
+    "name": "React",
+    "url": "https://reactjs.org/"
+  },
+  {
+    "name": "TypeScript",
+    "url": "https://www.typescriptlang.org/"
+  },
+  {
+    "name": "Material-UI",
+    "url": "https://mui.com/"
+  },
+  {
+    "name": "CI/CD",
+    "url": "https://github.com/features/actions"
+  },
+  {
+    "name": "GH Pages",
+    "url": "https://pages.github.com/"
+  },
+  {
+    "name": "MERN",
+    "url": "https://www.mongodb.com/en-us/resources/languages/mern-stack"
+  },
+  {
+    "name": "LEG",
+    "url": "https://grafana.com/grafana/dashboards/1004-elasticsearch/"
+  },
+  {
+    "name": "Docker",
+    "url": "https://www.docker.com/"
+  },
+  {
+    "name": "Kubernetes",
+    "url": "https://kubernetes.io"
+  },
+  {
+    "name": "Spring Boot",
+    "url": "https://spring.io/projects/spring-boot"
+  },
+  {
+    "name": "MySQL",
+    "url": "https://www.mysql.com"
+  },
+  {
+    "name": "Maven",
+    "url": "https://maven.apache.org/"
+  },
+  {
+    "name": "NLP",
+    "url": "https://en.wikipedia.org/wiki/Natural_language_processing"
+  },
+  {
+    "name": "JUnit",
+    "url": "https://junit.org/junit5/"
+  },
+  {
+    "name": "PGSQL",
+    "url": "https://www.postgresql.org"
+  },
+  {
+    "name": "Selenium",
+    "url": "https://www.selenium.dev/"
+  },
+  {
+    "name": "Node.js",
+    "url": "https://nodejs.org/"
+  },
+  {
+    "name": "JavaScript",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+    "name": "MongoDB",
+    "url": "https://www.mongodb.com/"
+  }
+]

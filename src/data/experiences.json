@@ -3,14 +3,7 @@
     "title": "RIT Global Cybersecurity Institute",
     "subtitle": "Team Lead - Software Security",
     "details": "Led a team of developers in advancing security-focused software initiatives, overseeing the continued development of the SBOM generation tool and National Vulnerability Intelligence Platform. Defined and enforced best practices in system design, testing automation, and CI/CD to improve software reliability and maintainability. Coordinated cross-functional collaboration between developers, security analysts, and QA engineers to optimize workflows. Guided the integration of advanced security analysis techniques into microservices architecture, ensuring scalable and secure solutions.",
-    "technologies": [
-      { "name": "PGSQL", "url": "https://www.postgresql.org" },
-      { "name": "Spring Boot", "url": "https://spring.io/projects/spring-boot" },
-      { "name": "Docker", "url": "https://www.docker.com/" },
-      { "name": "JUnit", "url": "https://junit.org/junit5/" },
-      { "name": "Selenium", "url": "https://www.selenium.dev/" },
-      { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ],
+    "technologies": ["PGSQL", "Spring Boot", "Docker", "JUnit", "Selenium", "CI/CD"],
     "startDate": "Apr 2023",
     "endDate": "May 2024"
   },
@@ -18,14 +11,7 @@
     "title": "RIT Global Cybersecurity Institute",
     "subtitle": "Software Security Engineer",
     "details": "Developed security-focused software solutions, including an automated SBOM generation tool and the National Vulnerability Intelligence Platform. Designed and implemented scalable microservices using Java Spring Boot to facilitate efficient software dependency analysis. Optimized PostgreSQL queries and schemas for improved data retrieval performance. Built comprehensive end-to-end testing suites using JUnit and Selenium to ensure system reliability. Established CI/CD pipelines with Docker and GitHub Actions, automating testing and deployment to streamline development processes.",
-    "technologies": [
-      { "name": "PGSQL", "url": "https://www.postgresql.org" },
-      { "name": "Spring Boot", "url": "https://spring.io/projects/spring-boot" },
-      { "name": "Docker", "url": "https://www.docker.com/" },
-      { "name": "JUnit", "url": "https://junit.org/junit5/" },
-      { "name": "Selenium", "url": "https://www.selenium.dev/" },
-      { "name": "CI/CD", "url": "https://github.com/features/actions" }
-    ],
+    "technologies": ["PGSQL", "Spring Boot", "Docker", "JUnit", "Selenium", "CI/CD"],
     "startDate": "Dec 2022",
     "endDate": "Apr 2023"
   },
@@ -33,13 +19,7 @@
     "title": "Rochester Institute of Technology",
     "subtitle": "Software Engineering Course Assistant",
     "details": "Provided in-depth guidance on full-stack web development concepts, focusing on responsive design and scalable architectures. Assisted students through one-on-one mentoring, office hours, and study sessions, ensuring comprehension of fundamental engineering principles. Conducted thorough code reviews, offering detailed feedback to improve maintainability, performance, and adherence to best practices. Graded assignments with a focus on software quality, testing, and adherence to industry standards.",
-    "technologies": [
-      { "name": "React", "url": "https://reactjs.org/" },
-      { "name": "Reactstrap", "url": "https://reactstrap.github.io/?path=/story/home-installation--page" },
-      { "name": "Node.js", "url": "https://nodejs.org/" },
-      { "name": "JavaScript", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
-      { "name": "MongoDB", "url": "https://www.mongodb.com/" }
-    ],
+    "technologies": ["React", "Reactstrap", "Node.js", "JavaScript", "MongoDB"],
     "startDate": "Aug 2022",
     "endDate": "Dec 2022"
   }
