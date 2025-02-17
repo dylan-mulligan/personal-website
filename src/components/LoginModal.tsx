@@ -38,10 +38,17 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, handleClose }) => {
         setError('Incorrect username or password');
     };
 
+    const handleModalClose = () => {
+        setUsername('');
+        setPassword('');
+        setError('');
+        handleClose();
+    };
+
     return (
         <Modal
             open={open}
-            onClose={handleClose}
+            onClose={handleModalClose}
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{
