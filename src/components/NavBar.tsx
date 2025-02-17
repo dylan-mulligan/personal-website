@@ -12,6 +12,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
+import LoginModal from './LoginModal';
 import type {} from '@mui/material/themeCssVarsAugmentation';
 import { keyframes } from '@mui/system';
 import Typography from '@mui/material/Typography';
@@ -45,13 +46,21 @@ const AnimatedTypography = styled(Typography)<{ animation: string; index: number
     },
 }));
 
-
 export default function NavBar() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const [loginModalOpen, setLoginModalOpen] = React.useState(false);
 
     const toggleDrawer = (newOpen: boolean) => () => {
         setOpen(newOpen);
+    };
+
+    const handleLoginModalOpen = () => {
+        setLoginModalOpen(true);
+    };
+
+    const handleLoginModalClose = () => {
+        setLoginModalOpen(false);
     };
 
     const StyledToolbar = styled(Toolbar)({
@@ -99,22 +108,6 @@ export default function NavBar() {
                     >
                         Dylan Mulligan
                     </Typography>
-                    {/*<AnimatedTypography
-                        animation={colorChange}
-                        variant="h3"
-                        sx={{
-                            position: 'absolute',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            display: { xs: 'none', sm: 'block' },
-                        }}
-                    >
-                        {'Dylan Mulligan'.split('').map((char, index) => (
-                            <span key={index} style={{ animationDelay: `${index * 0.1}s` }}>
-                              {char === ' ' ? '\u00A0' : char}
-                            </span>
-                        ))}
-                    </AnimatedTypography>*/}
                     <Box
                         sx={{
                             display: { xs: 'none', sm: 'flex' },
@@ -122,7 +115,7 @@ export default function NavBar() {
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small">
+                        <Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>
                             Sign in
                         </Button>
                         <ColorModeIconDropdown />
@@ -154,7 +147,7 @@ export default function NavBar() {
                                     </IconButton>
                                 </Box>
                                 <MenuItem>
-                                    <Button color="primary" variant="outlined" fullWidth>
+                                    <Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>
                                         Sign in
                                     </Button>
                                 </MenuItem>
@@ -162,6 +155,7 @@ export default function NavBar() {
                         </Drawer>
                     </Box>
                 </StyledToolbar>
+                <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
             </Container>
         </AppBar>
     );
