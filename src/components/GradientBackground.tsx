@@ -15,7 +15,7 @@ const GradientBackground = styled(Box)(({ mouseX, mouseY }: { mouseX: number; mo
     zIndex: -1,
     background: useTheme().palette.mode === 'dark'
         ? `radial-gradient(circle at ${mouseX}% ${mouseY}%, rgba(0, 150, 255, 0.2), rgba(0, 0, 0, 0.9))`
-        : `radial-gradient(circle at ${mouseX}% ${mouseY}%, rgba(0, 150, 255, 0.2), rgba(255, 255, 255, 0.9))`,
+        : `radial-gradient(circle at ${mouseX}% ${mouseY}%, rgba(0, 150, 255, 0.15), rgba(255, 255, 255, 0.9))`,
     transition: "background 0.1s ease-out",
 }));
 
