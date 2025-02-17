@@ -45,12 +45,16 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            '& .MuiChip-label': {
-                display: expandOnHover ? 'none' : 'block',
-            },
-            '&:hover .MuiChip-label': {
-                display: expandOnHover ? 'block' : 'none',
-            },
+            minHeight: 40,
+            ...(expandOnHover && {
+                '& .MuiChip-label': {
+                    display: 'none',
+                },
+                '&:hover .MuiChip-label': {
+                    display: 'block',
+                    width: 'max-content',
+                },
+            }),
         };
     }
 
