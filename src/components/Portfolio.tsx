@@ -48,7 +48,6 @@ const Portfolio: React.FC = (): JSX.Element => {
                     textAlign: "center",
                     paddingBottom: 1,
                     display: { xs: 'block', sm: 'none'},
-                    backgroundColor: theme.palette.background.default,
                     color: theme.palette.text.primary,
                 }}
             >
