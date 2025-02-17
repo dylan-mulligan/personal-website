@@ -68,16 +68,16 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         setExpandedItem(expandedItem === index ? null : index);
     };
 
-    const listItemStyle = {
+    const listItemStyle = (index: number) => ({
         cursor: "pointer",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        border: `1px solid ${theme.palette.divider}`,
-        borderRadius: 2,
+        border: `2px solid ${expandedItem === index ? theme.palette.info.main : theme.palette.divider}`,
+        borderRadius: 3,
         marginBottom: 1,
         padding: 2
-    };
+    });
 
     const getTechnologyDetails = (name: string) => {
         return technologies.find(tech => tech.name === name);
@@ -89,7 +89,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                 <Box key={index}>
                     <ListItem
                         onClick={() => handleToggle(index)}
-                        sx={listItemStyle}
+                        sx={listItemStyle(index)}
                     >
                         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
                             <ListItemText primary={item.title} secondary={item.subtitle} />
