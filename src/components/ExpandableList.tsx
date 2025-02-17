@@ -27,6 +27,7 @@ interface Technology {
 const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
+    const [hoveredChip, setHoveredChip] = useState<string | null>(null);
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
     const isXSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const [technologies, setTechnologies] = useState<Technology[]>([]);
@@ -46,15 +47,20 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
             alignItems: 'center',
             justifyContent: 'center',
             minHeight: 40,
-            ...(expandOnHover && {
-                '& .MuiChip-label': {
-                    display: 'none',
-                },
-                '&:hover .MuiChip-label': {
-                    display: 'block',
-                    width: 'max-content',
-                },
-            }),
+            position: 'relative',
+            '& .MuiChip-label': {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: expandOnHover ? '-22px' : '0',
+                transition: 'margin-left 0.3s ease',
+            },
+            '&:hover .MuiChip-label': {
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: expandOnHover ? '-10px' : '0',
+            },
         };
     }
 
@@ -111,10 +117,15 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
                                     {item.technologies.map((techName, techIndex) => {
                                         const tech = getTechnologyDetails(techName);
+                                        const chipKey = `${index}-${techName}`;
                                         return tech ? (
                                             <Chip
-                                                key={techIndex}
-                                                label={tech.name}
+                                                key={chipKey}
+                                                label={
+                                                    <Collapse in={hoveredChip === chipKey} orientation={"horizontal"}>
+                                                        {tech.name}
+                                                    </Collapse>
+                                                }
                                                 component="a"
                                                 icon={<TechnologyIcon iconName={tech.name} />}
                                                 href={tech.url}
@@ -123,6 +134,8 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 sx={chipStyle(true)}
+                                                onMouseEnter={() => setHoveredChip(chipKey)}
+                                                onMouseLeave={() => setHoveredChip(null)}
                                                 onClick={(event) => event.stopPropagation()}
                                             />
                                         ) : null;
