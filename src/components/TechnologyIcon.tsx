@@ -9,8 +9,8 @@ import {
     IconBrandMysql,
     IconBrandNodejs,
     IconBrandReact,
-    IconBrandTypescript,
-    IconFileUnknown,
+    IconBrandTypescript, IconDatabase, IconFeather,
+    IconFileUnknown, IconHexagon, IconLayout, IconShip,
     IconTestPipe
 } from '@tabler/icons-react';
 
@@ -22,10 +22,10 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
     switch (iconName) {
         case "React":
             return <IconBrandReact />;
-        case "Typescript":
+        case "TypeScript":
             return <IconBrandTypescript />;
         case "Material-UI":
-            return <IconFileUnknown />;
+            return <IconLayout />;
         case "CI/CD":
             return <IconBrandGithub />;
         case "GH Pages":
@@ -35,19 +35,19 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
         case "LEG":
             return <IconFileUnknown />;
         case "Kubernetes":
-            return <IconFileUnknown />;
+            return <IconShip />;
         case "Spring Boot":
-            return <IconFileUnknown />;
+            return <IconHexagon />;
         case "MySQL":
             return <IconBrandMysql />;
         case "Maven":
-            return <IconFileUnknown />;
+            return <IconFeather />;
         case "NLP":
             return <IconAi />;
         case "JUnit":
             return <IconTestPipe />;
-        case "PGSQL":
-            return <IconFileUnknown />;
+        case "PostgreSQL":
+            return <IconDatabase />;
         case "Selenium":
             return <IconBrandChrome />;
         case "Node.js":
