@@ -5,10 +5,12 @@ import AppTheme from './shared-theme/AppTheme';
 import NavBar from './components/NavBar';
 import Portfolio from './components/Portfolio';
 import Footer from './components/Footer';
+import GradientBackground from './components/GradientBackground';
 
 export default function App(props: { disableCustomTheme?: boolean }) {
     return (
         <AppTheme {...props}>
+            <GradientBackground/>
             <CssBaseline enableColorScheme/>
             <NavBar/>
             <Container
