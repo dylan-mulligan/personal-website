@@ -3,14 +3,11 @@ name: Build and Deploy
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 jobs:
   build:
@@ -36,17 +33,15 @@ jobs:
         run: |
           export CI=false  # Prevent treating warnings as errors
           npm run build
+
       - name: Upload production artifacts
         uses: actions/upload-artifact@v4
         with:
           name: production-files
           path: build  # Ensure only the build output is uploaded
+
   deploy:
     needs: build  # Ensure deploy runs only after build completes
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
 
     steps:
@@ -59,14 +54,10 @@ jobs:
           name: production-files
           path: build
 
-      - name: Setup GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact to GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
         with:
-          path: build  # Upload only the build directory
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: 'your-cloudflare-project-name'
+          directory: 'build'
