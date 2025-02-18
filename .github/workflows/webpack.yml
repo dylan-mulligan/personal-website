@@ -40,24 +40,25 @@ jobs:
           name: production-files
           path: build  # Ensure only the build output is uploaded
 
-  deploy:
-    needs: build  # Ensure deploy runs only after build completes
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: production-files
-          path: build
-
-      - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: 'your-cloudflare-project-name'
-          directory: 'build'
+#  deploy:
+#    needs: build  # Ensure deploy runs only after build completes
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v4
+#
+#      - name: Download build artifact
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: production-files
+#          path: build
+#
+#      - name: Deploy to Cloudflare Pages
+#        uses: cloudflare/pages-action@v1
+#        with:
+#          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#          projectName: 'your-cloudflare-project-name'
+#          directory: 'build'
+#          zoneId: ${{ secrets.CLOUDFLARE_ZONE_ID }}
