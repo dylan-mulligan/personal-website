@@ -45,8 +45,36 @@ export default function Footer() {
                                 View source code
                             </a>
                         </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-                            Built with <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray' }}>React</a>, <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray' }}>TypeScript</a>, and <a href="https://mui.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'gray' }}>MUI</a>.
+                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1, mr: 2 }}>
+                            Built with <a
+                                href="https://reactjs.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'gray' }}
+                            >
+                                React
+                            </a>, <a
+                                href="https://www.typescriptlang.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'gray' }}
+                            >
+                                TypeScript
+                            </a>, <a
+                                href="https://mui.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'gray' }}
+                            >
+                                Material-UI
+                            </a>, and <a
+                            href="https://tabler-icons.io/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: 'gray' }}
+                        >
+                            Tabler
+                        </a>
                         </Typography>
                     </div>
                     <Stack

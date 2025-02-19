@@ -9,8 +9,17 @@ import {
     IconBrandMysql,
     IconBrandNodejs,
     IconBrandReact,
-    IconBrandTypescript, IconDatabase, IconFeather,
-    IconFileUnknown, IconHexagon, IconLayout, IconShip,
+    IconBrandTypescript,
+    IconBuildingCastle,
+    IconDatabase,
+    IconFeather,
+    IconFileUnknown,
+    IconHexagon,
+    IconLayout,
+    IconLetterJ,
+    IconSchema,
+    IconShip,
+    IconTerminal,
     IconTestPipe
 } from '@tabler/icons-react';
 
@@ -31,7 +40,7 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
         case "MERN":
             return <IconBrandMongodb />;
         case "LEG":
-            return <IconFileUnknown />;
+            return <IconSchema />;
         case "Kubernetes":
             return <IconShip />;
         case "Spring Boot":
@@ -56,6 +65,12 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconBrandDocker />;
         case "MongoDB":
             return <IconBrandMongodb />;
+        case "CLI":
+            return <IconTerminal />;
+        case "Gang of Four":
+            return <IconBuildingCastle />;
+        case "Jackson ORM":
+            return <IconLetterJ />;
         default:
             return <IconFileUnknown />;
     }
