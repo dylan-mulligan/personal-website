@@ -10,7 +10,7 @@ import {
     IconBrandNodejs,
     IconBrandReact,
     IconBrandTypescript, IconDatabase, IconFeather,
-    IconFileUnknown, IconHexagon, IconLayout, IconShip,
+    IconFileUnknown, IconHexagon, IconLayout, IconSchema, IconShip,
     IconTestPipe
 } from '@tabler/icons-react';
 
@@ -31,7 +31,7 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
         case "MERN":
             return <IconBrandMongodb />;
         case "LEG":
-            return <IconFileUnknown />;
+            return <IconSchema />;
         case "Kubernetes":
             return <IconShip />;
         case "Spring Boot":
