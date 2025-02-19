@@ -14,37 +14,7 @@ import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
 import LoginModal from './LoginModal';
 import type {} from '@mui/material/themeCssVarsAugmentation';
-import { keyframes } from '@mui/system';
 import Typography from '@mui/material/Typography';
-
-const wave = keyframes`
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-`;
-
-const colorChange = keyframes`
-    0%, 100% { color: #ff0000; }
-    16.67% { color: #ff7f00; }
-    33.33% { color: #ffff00; }
-    50% { color: #00ff00; }
-    66.67% { color: #0000ff; }
-    83.33% { color: #8b00ff; }
-`;
-
-const AnimatedTypography = styled(Typography)<{ animation: string; index: number }>(({ theme, animation, index }) => ({
-    display: 'inline-block',
-    '&:hover span': {
-        animation: `${animation} 2s infinite`,
-        animationTimingFunction: 'ease-in-out',
-        animationDelay: `${index * 0.15}s`,
-        animationPlayState: 'running',
-    },
-    '& span': {
-        display: 'inline-block',
-        transition: 'animation 0.5s ease-in-out',
-        animationPlayState: 'paused',
-    },
-}));
 
 export default function NavBar() {
     const theme = useTheme();

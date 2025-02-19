@@ -4,6 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { useMediaQuery } from '@mui/material';
 import technologiesData from '../data/technologies.json';
 import TechnologyIcon from './TechnologyIcon';
+import { AnimatedText } from './AnimatedTypography';
 
 interface ExpandableItem {
     title: string;
@@ -17,6 +18,7 @@ interface ExpandableItem {
 
 interface ExpandableListProps {
     items: ExpandableItem[];
+    animationType?: string;
 }
 
 interface Technology {
@@ -24,7 +26,7 @@ interface Technology {
     url: string;
 }
 
-const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
+const ExpandableList: React.FC<ExpandableListProps> = ({ items, animationType }): JSX.Element => {
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
     const [hoveredChip, setHoveredChip] = useState<string | null>(null);
@@ -92,7 +94,14 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                         sx={listItemStyle(index)}
                     >
                         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-                            <ListItemText primary={item.title} secondary={item.subtitle} />
+                            {animationType ? (
+                                <Box display="flex" flexDirection="column">
+                                    <AnimatedText animation={animationType} text={item.title} animationDuration={2} />
+                                    <ListItemText secondary={item.subtitle} />
+                                </Box>
+                                ) : (
+                                <ListItemText primary={item.title} secondary={item.subtitle} />
+                            )}
                             {item.projectUrl && isSmallScreen && !isSmallScreen &&
                                 <IconButton
                                     color="inherit"

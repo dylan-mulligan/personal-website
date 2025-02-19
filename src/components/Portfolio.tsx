@@ -66,11 +66,11 @@ const Portfolio: React.FC = (): JSX.Element => {
                 Pushing to Prod & Hoping for the Best 🚀🔥
             </Typography>
             <Box>
-                <Typography variant="h5" textAlign="left">Work Experience</Typography>
+                <Typography variant="h4" textAlign="left">Work Experience</Typography>
                 <ExpandableList items={experiences ?? []} />
             </Box>
             <Box>
-                <Typography variant="h5" textAlign="left">Projects</Typography>
+                <Typography variant="h4" textAlign="left">Projects</Typography>
                 <ExpandableList items={projects ?? []} />
             </Box>
         </Box>
