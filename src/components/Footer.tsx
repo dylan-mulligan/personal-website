@@ -45,7 +45,7 @@ export default function Footer() {
                                 View source code
                             </a>
                         </Typography>
-                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1, mr: 2 }}>
                             Built with <a
                                 href="https://reactjs.org/"
                                 target="_blank"
