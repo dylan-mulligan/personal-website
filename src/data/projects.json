@@ -31,5 +31,14 @@
     "technologies": ["Spring Boot", "Maven", "NLP", "JUnit", "CI/CD"],
     "startDate": "Dec 2022",
     "endDate": "May 2023"
+  },
+  {
+    "title": "Multi-User Dungeon (M.U.D.)",
+    "subtitle": "A text-based dungeon game utilizing design patterns for command handling and state management",
+    "details": "Engineered a modular Multi-User Dungeon (M.U.D.) game using object-oriented principles and design patterns to ensure scalability and maintainability. Implemented the Memento pattern to manage game state persistence, enabling seamless save/load functionality. Designed a flexible command processing system using the Command pattern, allowing dynamic player interactions through a CLI interface. Applied encapsulation and separation of concerns to create a well-structured game architecture, supporting future expansions such as graphical user interfaces. Emphasized clean code practices and extensibility to facilitate long-term maintainability and potential multiplayer integration.",
+    "technologies": ["Spring Boot", "Gang of Four", "Jackson ORM", "CLI"],
+    "startDate": "Sep 2021",
+    "endDate": "Dec 2021"
   }
+
 ]

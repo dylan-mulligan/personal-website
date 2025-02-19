@@ -70,5 +70,17 @@
   {
     "name": "MongoDB",
     "url": "https://www.mongodb.com/"
+  },
+  {
+    "name": "CLI",
+    "url": "https://aws.amazon.com/what-is/cli/"
+  },
+  {
+    "name": "Gang of Four",
+    "url": "https://www.digitalocean.com/community/tutorials/gangs-of-four-gof-design-patterns"
+  },
+  {
+    "name": "Jackson ORM",
+    "url": "https://github.com/FasterXML/jackson"
   }
 ]
