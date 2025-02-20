@@ -16,7 +16,7 @@ This project is a personal portfolio website built using [Create React App](http
 ## Live Site
 
 The latest build is automatically hosted via GitHub Actions at:  
-[https://dylan-mulligan.github.io/personal-website/index.html](https://dylan-mulligan.github.io/personal-website/index.html)
+[https://dylan-mulligan.github.io/personal-website/index.html](https://dylanmulligan.com)
 
 ## Getting Started
 
