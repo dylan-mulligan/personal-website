@@ -28,8 +28,9 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
     const [hoveredChip, setHoveredChip] = useState<string | null>(null);
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const isXSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isXSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
     const [technologies, setTechnologies] = useState<Technology[]>([]);
 
     useEffect(() => {
@@ -98,7 +99,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             <ListItemText
                                 primary={item.title}
                                 secondary={item.subtitle}
-                                sx={{ width: 350, flexGrow: 0 }}
+                                sx={{ width: isXSmallScreen ? 275 : 325, flexGrow: 0 }}
                             />
                             {item.projectUrl &&
                                 <Button
@@ -118,12 +119,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
 
                         {/*Technologies Box*/}
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                            {item.startDate && item.endDate && !isXSmallScreen &&
+                            {item.startDate && item.endDate && !isSmallScreen &&
                                 <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
                                     {item.startDate} - {item.endDate}
                                 </Typography>
                             }
-                            {!isSmallScreen && (
+                            {!isMediumScreen && (
                                 <Box sx={{ display: "flex", gap: 1, marginTop: 2, marginBottom: 0 }}>
                                     {item.technologies.map((techName, techIndex) => {
                                         const tech = getTechnologyDetails(techName);
@@ -162,12 +163,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                     {/*Technologies Collapse*/}
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
-                            {isXSmallScreen &&
+                            {isSmallScreen &&
                                 <Typography variant="body2" sx={{ fontWeight: "bold", textAlign: "left", whiteSpace: "nowrap", marginBottom: 2 }}>
                                     {item.startDate} - {item.endDate}
                                 </Typography>
                             }
-                            {isSmallScreen && (
+                            {isMediumScreen && (
                                 <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
                                     {item.technologies.map((techName, techIndex) => {
                                         const tech = getTechnologyDetails(techName);

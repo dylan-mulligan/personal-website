@@ -1,21 +1,20 @@
 import * as React from 'react';
-import { alpha, styled, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
-import Drawer from '@mui/material/Drawer';
+import {
+    alpha, styled, useTheme, useMediaQuery,
+    Box, AppBar, Toolbar, Button, IconButton,
+    Container, MenuItem, Drawer, Typography
+} from '@mui/material';
+
+import type {} from '@mui/material/themeCssVarsAugmentation';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
-import Logo from './Logo';
-import LoginModal from './LoginModal';
-import type {} from '@mui/material/themeCssVarsAugmentation';
+
 import { keyframes } from '@mui/system';
-import Typography from '@mui/material/Typography';
+
+import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
+import LoginModal from './LoginModal';
+import Logo from './Logo';
 
 const wave = keyframes`
     0%, 100% { transform: translateY(0); }
@@ -34,10 +33,8 @@ const colorChange = keyframes`
 const AnimatedTypography = styled(Typography)<{ animation: string; index: number }>(({ theme, animation, index }) => ({
     display: 'inline-block',
     '&:hover span': {
-        animation: `${animation} 2s infinite`,
         animationTimingFunction: 'ease-in-out',
         animationDelay: `${index * 0.15}s`,
-        animationPlayState: 'running',
     },
     '& span': {
         display: 'inline-block',
@@ -50,6 +47,8 @@ export default function NavBar() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const [loginModalOpen, setLoginModalOpen] = React.useState(false);
+
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     const toggleDrawer = (newOpen: boolean) => () => {
         setOpen(newOpen);
@@ -95,22 +94,23 @@ export default function NavBar() {
                     <Box sx={{ display: 'flex', alignItems: 'center', px: 0 }}>
                         <Logo />
                     </Box>
-                    <Typography
-                        variant="h3"
-                        component="div"
-                        sx={{
-                            position: 'absolute',
-                            left: '50%',
-                            transform: 'translateX(-50%)',
-                            display: { xs: 'none', sm: 'block'},
-                            color: theme.palette.text.primary,
-                        }}
-                    >
-                        Dylan Mulligan
-                    </Typography>
+                    {!isSmallScreen && (
+                        <Typography
+                            variant="h3"
+                            component="div"
+                            sx={{
+                                position: 'absolute',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                color: theme.palette.text.primary,
+                            }}
+                        >
+                            Dylan Mulligan
+                        </Typography>
+                    )}
                     <Box
                         sx={{
-                            display: { xs: 'none', sm: 'flex' },
+                            display: isSmallScreen ? 'none' : 'flex',
                             gap: 1,
                             alignItems: 'center',
                         }}
@@ -120,7 +120,7 @@ export default function NavBar() {
                         </Button>
                         <ColorModeIconDropdown />
                     </Box>
-                    <Box sx={{ display: { xs: 'flex', sm: 'none' }, gap: 1 }}>
+                    <Box sx={{ display: isSmallScreen ? 'flex' : 'none', gap: 1 }}>
                         <ColorModeIconDropdown size="medium" />
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
                             <MenuIcon />
