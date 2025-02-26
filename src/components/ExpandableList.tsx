@@ -1,9 +1,9 @@
 import React, { JSX, useState, useEffect } from "react";
-import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip, IconButton } from "@mui/material";
+import { Box, List, ListItem, ListItemText, Collapse, Typography, Chip, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
 import technologiesData from '../data/technologies.json';
 import TechnologyIcon from './TechnologyIcon';
+import {IconBrandGithub} from "@tabler/icons-react";
 
 interface ExpandableItem {
     title: string;
@@ -46,14 +46,15 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            minHeight: 40,
+            minHeight: 50,
+            minWidth: 50,
             position: 'relative',
             '& .MuiChip-label': {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginLeft: expandOnHover ? '-22px' : '0',
-                transition: 'margin-left 0.3s ease',
+                transition: 'margin-left 0.4s ease',
             },
             '&:hover .MuiChip-label': {
                 display: 'flex',
@@ -72,11 +73,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         cursor: "pointer",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center",
+        alignItems: "flex-start",
         border: `2px solid ${expandedItem === index ? theme.palette.info.main : theme.palette.divider}`,
         borderRadius: 3,
         marginBottom: 1,
-        padding: 2
+        padding: 2,
+        paddingBottom: 1.5
     });
 
     const getTechnologyDetails = (name: string) => {
@@ -91,22 +93,30 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                         onClick={() => handleToggle(index)}
                         sx={listItemStyle(index)}
                     >
-                        <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
-                            <ListItemText primary={item.title} secondary={item.subtitle} />
-                            {item.projectUrl && isSmallScreen && !isSmallScreen &&
-                                <IconButton
+                        {/*Project Details Box*/}
+                        <Box sx={{ display: "flex", alignItems: "left", flexGrow: 1, justifyContent: "flex-start", flexDirection: "column" }}>
+                            <ListItemText
+                                primary={item.title}
+                                secondary={item.subtitle}
+                                sx={{ width: 350, flexGrow: 0 }}
+                            />
+                            {item.projectUrl &&
+                                <Button
                                     color="inherit"
                                     size="medium"
                                     href={item.projectUrl}
                                     target="_blank"
-                                    aria-label="GitHub"
-                                    sx={{ marginRight: 1 }}
+                                    startIcon={<IconBrandGithub />}
+                                    sx={{ marginLeft: 0, width: 150 }}
                                     onClick={(event) => event.stopPropagation()}
+                                    variant="contained"
                                 >
-                                    <TechnologyIcon iconName="GH Pages" />
-                                </IconButton>
+                                    Source Code
+                                </Button>
                             }
                         </Box>
+
+                        {/*Technologies Box*/}
                         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                             {item.startDate && item.endDate && !isXSmallScreen &&
                                 <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
@@ -114,7 +124,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 </Typography>
                             }
                             {!isSmallScreen && (
-                                <Box sx={{ display: "flex", gap: 1, marginTop: 1 }}>
+                                <Box sx={{ display: "flex", gap: 1, marginTop: 2, marginBottom: 0 }}>
                                     {item.technologies.map((techName, techIndex) => {
                                         const tech = getTechnologyDetails(techName);
                                         const chipKey = `${index}-${techName}`;
@@ -122,7 +132,11 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                             <Chip
                                                 key={chipKey}
                                                 label={
-                                                    <Collapse in={hoveredChip === chipKey} orientation={"horizontal"}>
+                                                    <Collapse in={hoveredChip === chipKey} orientation={"horizontal"} timeout={{
+                                                        enter: 350,
+                                                        exit: 450
+                                                    }}
+                                                    easing={"ease-in-out"}>
                                                         {tech.name}
                                                     </Collapse>
                                                 }
@@ -144,6 +158,8 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             )}
                         </Box>
                     </ListItem>
+
+                    {/*Technologies Collapse*/}
                     <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                         <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
                             {isXSmallScreen &&
