@@ -54,7 +54,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginLeft: expandOnHover ? '-22px' : '0',
-                transition: 'margin-left 0.4s ease',
+                transition: 'margin-left 0.3s ease',
             },
             '&:hover .MuiChip-label': {
                 display: 'flex',
@@ -133,8 +133,8 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                                 key={chipKey}
                                                 label={
                                                     <Collapse in={hoveredChip === chipKey} orientation={"horizontal"} timeout={{
-                                                        enter: 350,
-                                                        exit: 450
+                                                        enter: 300,
+                                                        exit: 350
                                                     }}
                                                     easing={"ease-in-out"}>
                                                         {tech.name}
