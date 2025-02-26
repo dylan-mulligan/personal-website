@@ -99,7 +99,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             <ListItemText
                                 primary={item.title}
                                 secondary={item.subtitle}
-                                sx={{ width: isXSmallScreen ? 275 : 325, flexGrow: 0 }}
+                                sx={{ width: isXSmallScreen ? 250 : 325, flexGrow: 0 }}
                             />
                             {item.projectUrl &&
                                 <Button
