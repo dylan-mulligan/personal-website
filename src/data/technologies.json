@@ -12,7 +12,7 @@
     "url": "https://mui.com/"
   },
   {
-    "name": "CI/CD",
+    "name": "GH Actions CI/CD",
     "url": "https://github.com/features/actions"
   },
   {
@@ -82,5 +82,17 @@
   {
     "name": "Jackson ORM",
     "url": "https://github.com/FasterXML/jackson"
+  },
+  {
+    "name": "Python",
+    "url": "https://www.python.org/"
+  },
+  {
+    "name": "Fuzzing",
+    "url": "https://en.wikipedia.org/wiki/Fuzzing"
+  },
+  {
+    "name": "GitLab CI/CD",
+    "url": "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/"
   }
 ]

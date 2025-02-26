@@ -1,26 +1,12 @@
 import React from 'react';
 import {
-    IconAi,
-    IconBrandChrome,
-    IconBrandDocker,
-    IconBrandGithub,
-    IconBrandJavascript,
-    IconBrandMongodb,
-    IconBrandMysql,
-    IconBrandNodejs,
-    IconBrandReact,
-    IconBrandTypescript,
-    IconBuildingCastle,
-    IconDatabase,
-    IconFeather,
-    IconFileUnknown,
-    IconHexagon,
-    IconLayout,
-    IconLetterJ,
-    IconSchema,
-    IconShip,
-    IconTerminal,
-    IconTestPipe
+    IconAi, IconBrandChrome, IconBrandDocker,
+    IconBrandGithub, IconBrandGitlab, IconBrandJavascript,
+    IconBrandMongodb, IconBrandMysql, IconBrandNodejs,
+    IconBrandPython, IconBrandReact, IconBrandTypescript,
+    IconBuildingCastle, IconDatabase, IconFeather,
+    IconFileUnknown, IconHexagon, IconLayout, IconLetterJ,
+    IconSchema, IconShip, IconSpyOff, IconTerminal, IconTestPipe
 } from '@tabler/icons-react';
 
 interface TechnologyIconProps {
@@ -35,7 +21,7 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconBrandTypescript />;
         case "Material-UI":
             return <IconLayout />;
-        case "CI/CD":
+        case "GH Actions CI/CD":
             return <IconBrandGithub />;
         case "MERN":
             return <IconBrandMongodb />;
@@ -71,6 +57,12 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconBuildingCastle />;
         case "Jackson ORM":
             return <IconLetterJ />;
+        case "Python":
+            return <IconBrandPython />;
+        case "Fuzzing":
+            return <IconSpyOff />;
+        case "GitLab CI/CD":
+            return <IconBrandGitlab />;
         default:
             return <IconFileUnknown />;
     }

@@ -3,7 +3,7 @@
     "title": "Personal Portfolio Website",
     "subtitle": "Responsive personal portfolio website showcasing projects and skills",
     "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a GitHub Actions workflow for continuous integration and deployment, automating the build and deployment process to GitHub Pages. Followed best practices in code organization and version control to maintain a clean and maintainable codebase.",
-    "technologies": ["React", "TypeScript", "Material-UI", "CI/CD", "GH Pages"],
+    "technologies": ["React", "TypeScript", "Material-UI", "GH Actions CI/CD", "GH Pages"],
     "startDate": "Jan 2025",
     "endDate": "Present",
     "projectUrl": "https://github.com/dylan-mulligan/personal-website"
@@ -17,18 +17,27 @@
     "endDate": "Present"
   },
   {
+    "title": "Python Fuzzer - SWEN 331",
+    "subtitle": "Project for fuzz testing web applications",
+    "details": "Developed a Python-based fuzz testing tool to identify vulnerabilities and bugs in compromised web servers for my Engineering Secure Software (SWEN 331) course. Utilized automated testing techniques to improve software reliability and security. Implemented various fuzzing strategies, including mutation-based and generation-based fuzzing, to thoroughly test input validation and error handling. Integrated with CI/CD pipelines using GitLab CI/CD to automate the fuzz testing process, ensuring continuous security assessment.",
+    "technologies": ["Python", "Fuzzing", "GitLab CI/CD"],
+    "startDate": "Jan 2024",
+    "endDate": "Feb 2024",
+    "projectUrl": "https://github.com/dylan-mulligan/python-fuzzer"
+  },
+  {
     "title": "National Vulnerability Intelligence Platform",
     "subtitle": "Security analysis and reporting for software dependencies",
     "details": "Developed a security intelligence platform to analyze, track, and report vulnerabilities in software dependencies. Designed a microservices-based architecture with Spring Boot to enable modular and scalable data processing. Built an automated repository scanning framework to detect vulnerabilities in public and private repositories, integrating real-time vulnerability databases. Utilized MySQL for structured data storage and optimized queries for fast data retrieval. Containerized services using Docker and orchestrated deployments with Kubernetes for high availability and fault tolerance.",
-    "technologies": ["Spring Boot", "MySQL", "Docker", "Kubernetes", "CI/CD"],
+    "technologies": ["Spring Boot", "MySQL", "Docker", "Kubernetes", "GH Actions CI/CD"],
     "startDate": "May 2023",
     "endDate": "March 2024"
   },
   {
     "title": "Automated SBOM Generation",
     "subtitle": "Automated SBOM generation using Java and NLP techniques",
-    "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
-    "technologies": ["Spring Boot", "Maven", "NLP", "JUnit", "CI/CD"],
+    "details": "Developed a Java-based tooling system for automated Software Bill of Materials (SBOM) generation, leveraging natural language processing (NLP) to analyze and extract software dependencies from repositories. Utilized polymorphic design patterns to create an extensible architecture that supports multiple dependency file formats. Implemented efficient file parsing techniques to improve processing speed and accuracy. Integrated Spring Boot for scalable API endpoints and streamlined dependency management with Maven. Ensured code reliability through JUnit-based testing and automated GH Actions CI/CD pipelines, achieving 85%+ line coverage and streamlining successful deployments.",
+    "technologies": ["Spring Boot", "Maven", "NLP", "JUnit", "GH Actions CI/CD"],
     "startDate": "Dec 2022",
     "endDate": "May 2023"
   },
