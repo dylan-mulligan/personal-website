@@ -25,7 +25,7 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconBrandGithub />;
         case "MERN":
             return <IconBrandMongodb />;
-        case "LEG":
+        case "ELG":
             return <IconSchema />;
         case "Kubernetes":
             return <IconShip />;

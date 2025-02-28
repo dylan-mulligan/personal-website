@@ -3,7 +3,7 @@
     "title": "Personal Portfolio Website",
     "subtitle": "Responsive personal portfolio website showcasing projects and skills",
     "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a GitHub Actions workflow for continuous integration and deployment, automating the build and deployment process to GitHub Pages. Followed best practices in code organization and version control to maintain a clean and maintainable codebase.",
-    "technologies": ["React", "TypeScript", "Material-UI", "GH Actions CI/CD", "GH Pages"],
+    "technologies": ["TypeScript", "React", "Material-UI", "GH Actions CI/CD", "GH Pages"],
     "startDate": "Jan 2025",
     "endDate": "Present",
     "projectUrl": "https://github.com/dylan-mulligan/personal-website"
@@ -11,8 +11,8 @@
   {
     "title": "Single Pane of Glass - Honeywell",
     "subtitle": "Web app for centralizing data visualization across cloud data sources",
-    "details": "Designed and developed a full-stack web application that aggregates and visualizes data from multiple cloud providers, enabling real-time monitoring and analysis. Engineered a scalable microservices architecture using the MERN stack to ensure seamless integration of backend services with an interactive frontend. Enhanced a data pipeline framework to ingest and process large-scale data sources. Optimized API performance and database queries to handle high-throughput data streams efficiently. Established CI/CD pipelines with Docker and GitHub Actions to enable rapid and reliable deployments.",
-    "technologies": ["MERN", "LEG", "Docker", "Kubernetes"],
+    "details": "Contributed to both frontend and backend development, focusing on scalability, maintainability, and deployment efficiency. On the frontend, I designed a dedicated marketplace page for KPI selection, which is prepared for integration with role-based access control (RBAC) to ensure secure and tailored user experiences. I also led a MaterialUI overhaul to enhance visual responsiveness, maintainability, and global theming, while transitioning the frontend to TypeScript for improved scalability. Beyond development, I revamped documentation to streamline onboarding and future development. On the full-stack side, I optimized containerized deployments using Docker Compose, simplifying service management and improving deployment consistency across environments.",
+    "technologies": ["TypeScript", "MERN", "ELG", "Docker", "Kubernetes"],
     "startDate": "Aug 2024",
     "endDate": "Present"
   },

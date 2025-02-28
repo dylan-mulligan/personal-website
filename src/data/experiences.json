@@ -19,7 +19,7 @@
     "title": "Rochester Institute of Technology: GCCIS",
     "subtitle": "Software Engineering Course Assistant",
     "details": "Provided in-depth guidance on full-stack web development concepts, focusing on responsive design and scalable architectures. Assisted students through one-on-one mentoring, office hours, and study sessions, ensuring comprehension of fundamental engineering principles. Conducted thorough code reviews, offering detailed feedback to improve maintainability, performance, and adherence to best practices. Graded assignments with a focus on software quality, testing, and adherence to industry standards.",
-    "technologies": ["React", "Reactstrap", "Node.js", "JavaScript", "MongoDB"],
+    "technologies": ["JavaScript", "React", "Node.js", "MongoDB"],
     "startDate": "Aug 2022",
     "endDate": "Dec 2022"
   }
