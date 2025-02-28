@@ -56,7 +56,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
 
     const chipStyle = (expandOnHover: boolean) => {
         return {
-            border: `1px solid ${theme.palette.divider}`,
+            border: `none`,
             padding: 1.5,
             marginBottom: 1,
             backgroundColor: theme.palette.background.paper,
@@ -79,6 +79,9 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginLeft: expandOnHover ? '-10px' : '0',
+            },
+            '&:hover': {
+                boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.2)',
             },
         };
     };
