@@ -17,7 +17,7 @@ interface AppThemeProps {
 const customBreakpoints = {
     values: {
         xs: 425,
-        sm: 650,
+        sm: 675,
         md: 850,
         lg: 1280,
         xl: 1920,
