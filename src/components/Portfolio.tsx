@@ -1,6 +1,6 @@
 import React, { JSX } from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import ExpandableList from "./ExpandableList";
+import ExpandableList from "./expandable-list/ExpandableList";
 
 // Safe import in case files are missing or cannot be parsed
 let projects = [];
