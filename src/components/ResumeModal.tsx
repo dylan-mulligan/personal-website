@@ -43,8 +43,8 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: '90%',
-                maxWidth: '750px',
-                maxHeight: '1100px',
+                maxWidth: '651px',
+                maxHeight: '975px',
                 bgcolor: 'background.paper',
                 boxShadow: 24,
                 display: 'flex',
@@ -60,7 +60,8 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     width: '100%',
                     pl: 3,
                     pt: 3,
-                    pr: 3
+                    pr: 3,
+                    mb: 2
                 }}>
                     <Typography variant="h3">
                         Resume
@@ -73,15 +74,15 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     overflow: 'hidden',
                     width: '100%',
                     maxWidth: 'calc(100% - 2em)',
-                    mb: 2,
                     borderRadius: 1,
+                    mb: 2,
                 }}>
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        margin: '10px 0',
-                        padding: '10px 0',
+                        borderRadius: 1,
+                        overflow: 'hidden',
                     }} ref={setContainerRef}>
                         <Document file={resumeUrl}>
                             <Page
