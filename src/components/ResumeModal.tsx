@@ -1,16 +1,7 @@
-import React, { JSX, useState, useCallback } from 'react';
-import { useResizeObserver } from '@wojtekmaj/react-hooks';
+import React, { JSX } from 'react';
 import { Modal, Box, IconButton } from '@mui/material';
-import { Document, Page, pdfjs } from 'react-pdf';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from "@mui/material/Typography";
-import 'react-pdf/dist/Page/TextLayer.css';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.mjs',
-    import.meta.url,
-).toString();
 
 interface ResumeModalProps {
     open: boolean;
@@ -18,23 +9,8 @@ interface ResumeModalProps {
     resumeUrl: string;
 }
 
-const maxWidth = 800;
-
 const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
 ): JSX.Element => {
-    const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-    const [containerWidth, setContainerWidth] = useState<number>();
-
-    const onResize = useCallback<ResizeObserverCallback>((entries) => {
-        const [entry] = entries;
-
-        if (entry) {
-            setContainerWidth(entry.contentRect.width);
-        }
-    }, []);
-
-    useResizeObserver(containerRef, {}, onResize);
-
     return (
         <Modal open={open} onClose={onClose}>
             <Box sx={{
@@ -76,21 +52,11 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     maxWidth: 'calc(100% - 2em)',
                     borderRadius: 1,
                     mb: 2,
+                    height: 'calc(100vh - 175px)'
                 }}>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        borderRadius: 1,
-                        overflow: 'hidden',
-                    }} ref={setContainerRef}>
-                        <Document file={resumeUrl}>
-                            <Page
-                                pageNumber={1}
-                                width={containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth}
-                            />
-                        </Document>
-                    </Box>
+                    <object data={resumeUrl} type="application/pdf" width="100%" height="100%">
+                        <iframe title="resume.pdf" src={resumeUrl} width="100%" height="100%" style={{border: "none"}}/>
+                    </object>
                 </Box>
             </Box>
         </Modal>
