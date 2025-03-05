@@ -4,7 +4,6 @@ import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
 import { IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
 
-// Safe import in case files are missing or cannot be parsed
 let projects = [];
 let experiences = [];
 
@@ -20,14 +19,9 @@ try {
     console.error("Error loading experiences.json:", error);
 }
 
-/**
- * Portfolio component that displays the user's name, title, projects, and work experience.
- * It uses the ExpandableList component to display projects and experiences in an expandable list format.
- *
- * @returns {JSX.Element} The rendered Portfolio component.
- */
 const Portfolio: React.FC = (): JSX.Element => {
     const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
     const scalingVariant = useMediaQuery(theme.breakpoints.down("sm")) ? "subtitle1" : "h5";
@@ -35,12 +29,6 @@ const Portfolio: React.FC = (): JSX.Element => {
     const handleResumeModalOpen = () => setResumeModalOpen(true);
     const handleResumeModalClose = () => setResumeModalOpen(false);
 
-    /**
-     * Returns the style for a technology chip.
-     *
-     * @param {boolean} expandOnHover - Whether the chip should expand on hover
-     * @returns {object} The style object
-     */
     const chipStyle = (expandOnHover: boolean) => {
         return {
             border: `none`,
@@ -109,7 +97,14 @@ const Portfolio: React.FC = (): JSX.Element => {
             <Typography variant="body2" textAlign="center">
                 Pushing to Prod & Hoping for the Best 🚀🔥
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', padding: 2, gap: 10 }}>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: isSmallScreen ? 'column' : 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: 2,
+                gap: 4
+            }}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: '250px', alignItems: 'center' }}>
                     <Typography variant="h6" textAlign={"center"}>Contact</Typography>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
