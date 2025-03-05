@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Chip, Typography, Collapse } from '@mui/material';
 import TechnologyIcon from './TechnologyIcon';
 
-interface TechnologiesBoxProps {
+interface TechnologyChipsProps {
     technologies: string[];
     startDate: string;
     endDate: string;
@@ -15,7 +15,7 @@ interface TechnologiesBoxProps {
     indexBase: number;
 }
 
-const TechnologyChips: React.FC<TechnologiesBoxProps> = ({
+const TechnologyChips: React.FC<TechnologyChipsProps> = ({
     technologies, startDate, endDate, isSmallScreen,
     isMediumScreen, hoveredChip, setHoveredChip, chipStyle,
     getTechnologyDetails, indexBase

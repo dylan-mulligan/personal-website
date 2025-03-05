@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, ListItemText, Button } from '@mui/material';
 import { IconBrandGithub } from '@tabler/icons-react';
 
-interface ProjectDetailsBoxProps {
+interface ListItemContentProps {
     title: string;
     subtitle: string;
     projectUrl?: string;
@@ -10,7 +10,7 @@ interface ProjectDetailsBoxProps {
     onClick: (event: any) => void;
 }
 
-const ListItemContent: React.FC<ProjectDetailsBoxProps> = ({ title, subtitle, projectUrl, isXSmallScreen, onClick }) => (
+const ListItemContent: React.FC<ListItemContentProps> = ({ title, subtitle, projectUrl, isXSmallScreen, onClick }) => (
     <Box sx={{ display: "flex", alignItems: "left", flexGrow: 1, justifyContent: "flex-start", flexDirection: "column" }}>
         <ListItemText
             primary={title}

@@ -2,7 +2,10 @@ import React from 'react';
 import { Box, Chip, Typography } from '@mui/material';
 import TechnologyIcon from './TechnologyIcon';
 
-interface TechnologiesCollapseProps {
+/**
+ * Props for the ListDetails component.
+ */
+interface ListDetailsProps {
     technologies: string[];
     details: string;
     startDate: string;
@@ -13,17 +16,25 @@ interface TechnologiesCollapseProps {
     chipStyle: Object;
 }
 
-const ListDetails: React.FC<TechnologiesCollapseProps> = ({
+/**
+ * ListDetails component that renders the details of a list item, including technology chips and project details.
+ *
+ * @param {ListDetailsProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered component.
+ */
+const ListDetails: React.FC<ListDetailsProps> = ({
        technologies, details, startDate,
        endDate, isSmallScreen, isMediumScreen,
        getTechnologyDetails, chipStyle
-   }) => (
+   }: ListDetailsProps): React.JSX.Element => (
     <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
+        {/* Display start and end dates on small screen sizes */}
         {isSmallScreen &&
             <Typography variant="body2" sx={{ fontWeight: "bold", textAlign: "left", whiteSpace: "nowrap", marginBottom: 2 }}>
                 {startDate} - {endDate}
             </Typography>
         }
+        {/* Display technology chips for medium and smaller screens (bottom right of the box)*/}
         {isMediumScreen && (
             <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
                 {technologies.map((techName, techIndex) => {
@@ -46,6 +57,7 @@ const ListDetails: React.FC<TechnologiesCollapseProps> = ({
                 })}
             </Box>
         )}
+        {/* Display project details */}
         <Typography variant="body2" textAlign="left">{details}</Typography>
     </Box>
 );

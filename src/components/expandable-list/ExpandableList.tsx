@@ -6,6 +6,9 @@ import ListItemContent from './ListItemContent';
 import TechnologyChips from './TechnologyChips';
 import ListDetails from './ListDetails';
 
+/**
+ * Interface representing an expandable item in the list.
+ */
 interface ExpandableItem {
     title: string;
     subtitle: string;
@@ -16,15 +19,27 @@ interface ExpandableItem {
     projectUrl?: string;
 }
 
+/**
+ * Props for the ExpandableList component.
+ */
 interface ExpandableListProps {
     items: ExpandableItem[];
 }
 
+/**
+ * Interface representing a technology item.
+ */
 interface Technology {
     name: string;
     url: string;
 }
 
+/**
+ * ExpandableList component that renders a list of items that can be expanded to show more details.
+ *
+ * @param {ExpandableListProps} props - The props for the component
+ * @returns {JSX.Element} The rendered component
+ */
 const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
@@ -34,15 +49,27 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
     const isXSmallScreen = useMediaQuery(theme.breakpoints.down('xs'));
     const [technologies, setTechnologies] = useState<Technology[]>([]);
 
+    // Load technologies data on component mount
     useEffect(() => {
         setTechnologies(technologiesData);
     }, []);
 
+    /**
+     * Toggles the expanded state of an item.
+     *
+     * @param {number} index - The index of the item to toggle
+     */
     const handleToggle = (index: number) => {
         setExpandedItem(expandedItem === index ? null : index);
     };
 
-    const listItemStyle = (index: number) => ({
+    /**
+     * Returns the style for a list item.
+     *
+     * @param {number} index - The index of the list item
+     * @returns {object} The style object
+     */
+    const listItemStyle = (index: number): object => ({
         cursor: "pointer",
         display: "flex",
         justifyContent: "space-between",
@@ -54,6 +81,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         paddingBottom: 1.5
     });
 
+    /**
+     * Returns the style for a technology chip.
+     *
+     * @param {boolean} expandOnHover - Whether the chip should expand on hover
+     * @returns {object} The style object
+     */
     const chipStyle = (expandOnHover: boolean) => {
         return {
             border: `none`,
@@ -86,6 +119,12 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
         };
     };
 
+    /**
+     * Returns the details of a technology by name.
+     *
+     * @param {string} name - The name of the technology
+     * @returns {Technology | undefined} The technology details or undefined if not found
+     */
     const getTechnologyDetails = (name: string) => {
         return technologies.find(tech => tech.name === name);
     };
@@ -102,6 +141,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                             onClick={() => handleToggle(index)}
                             sx={listItemStyle(index)}
                         >
+                            {/* Content of the list item (title, subtitle, source) */}
                             <ListItemContent
                                 title={item.title}
                                 subtitle={item.subtitle}
@@ -109,6 +149,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 isXSmallScreen={isXSmallScreen}
                                 onClick={(event) => event.stopPropagation()}
                             />
+                            {/* Technology chips on the list items and start-end date of item */}
                             <TechnologyChips
                                 technologies={item.technologies}
                                 startDate={item.startDate}
@@ -122,6 +163,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 chipStyle={chipStyle(true)}
                             />
                         </ListItem>
+                        {/* Collapsible list item details section, has project details and chips for small resolutions */}
                         <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
                             <ListDetails
                                 technologies={item.technologies}
