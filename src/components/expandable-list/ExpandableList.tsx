@@ -24,6 +24,7 @@ interface ExpandableItem {
  */
 interface ExpandableListProps {
     items: ExpandableItem[];
+    chipStyle: (expandOnHover: boolean) => object;
 }
 
 /**
@@ -40,7 +41,7 @@ interface Technology {
  * @param {ExpandableListProps} props - The props for the component
  * @returns {JSX.Element} The rendered component
  */
-const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element => {
+const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
     const theme = useTheme();
     const [expandedItem, setExpandedItem] = useState<number | null>(null);
     const [hoveredChip, setHoveredChip] = useState<string | null>(null);
@@ -82,44 +83,6 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
     });
 
     /**
-     * Returns the style for a technology chip.
-     *
-     * @param {boolean} expandOnHover - Whether the chip should expand on hover
-     * @returns {object} The style object
-     */
-    const chipStyle = (expandOnHover: boolean) => {
-        return {
-            border: `none`,
-            padding: 1.5,
-            marginBottom: 1,
-            backgroundColor: theme.palette.background.paper,
-            color: theme.palette.text.primary,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minHeight: 50,
-            minWidth: 50,
-            position: 'relative',
-            '& .MuiChip-label': {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: expandOnHover ? '-22px' : '0',
-                transition: 'margin-left 0.3s ease',
-            },
-            '&:hover .MuiChip-label': {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: expandOnHover ? '-10px' : '0',
-            },
-            '&:hover': {
-                boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.2)',
-            },
-        };
-    };
-
-    /**
      * Returns the details of a technology by name.
      *
      * @param {string} name - The name of the technology
@@ -133,7 +96,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
 
     return (
         <List>
-            {items.map((item, index) => {
+            {props.items.map((item, index) => {
                 chipIndexCounter += item.technologies.length;
                 return (
                     <Box key={index}>
@@ -160,7 +123,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 setHoveredChip={setHoveredChip}
                                 getTechnologyDetails={getTechnologyDetails}
                                 indexBase={chipIndexCounter}
-                                chipStyle={chipStyle(true)}
+                                chipStyle={props.chipStyle(true)}
                             />
                         </ListItem>
                         {/* Collapsible list item details section, has project details and chips for small resolutions */}
@@ -173,7 +136,7 @@ const ExpandableList: React.FC<ExpandableListProps> = ({ items }): JSX.Element =
                                 isSmallScreen={isSmallScreen}
                                 isMediumScreen={isMediumScreen}
                                 getTechnologyDetails={getTechnologyDetails}
-                                chipStyle={chipStyle(false)}
+                                chipStyle={props.chipStyle(false)}
                             />
                         </Collapse>
                     </Box>
