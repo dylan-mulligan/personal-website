@@ -52,7 +52,8 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     maxWidth: 'calc(100% - 2em)',
                     borderRadius: 1,
                     mb: 2,
-                    height: 'calc(100vh - 175px)'
+                    height: 'calc(100vh - 175px)',
+                    background: 'white',
                 }}>
                     <object data={resumeUrl} type="application/pdf" width="100%" height="100%">
                         <iframe title="resume.pdf" src={resumeUrl} width="100%" height="100%" style={{border: "none"}}/>
