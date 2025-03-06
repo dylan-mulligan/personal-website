@@ -16,7 +16,6 @@ export default function Footer() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     gap: { xs: 4, sm: 8 },
-                    textAlign: { sm: 'center', md: 'left' },
                     paddingBottom: 8
                 }}
             >
@@ -24,7 +23,6 @@ export default function Footer() {
                     sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        pt: { xs: 4, sm: 8 },
                         width: '100%',
                     }}
                 >
@@ -35,7 +33,7 @@ export default function Footer() {
                             href="https://github.com/dylan-mulligan/personal-website"
                             target="_blank"
                             startIcon={<IconBrandGithub />}
-                            sx={{ marginLeft: 0, width: 150 }}
+                            sx={{ marginLeft: 0, width: 150, mt: 4 }}
                             variant="contained"
                         >
                             Source Code
