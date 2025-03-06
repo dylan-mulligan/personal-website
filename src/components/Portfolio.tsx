@@ -183,9 +183,9 @@ const Portfolio: React.FC = (): JSX.Element => {
                     <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <IconButton
                             onClick={handleResumeModalOpen}
-                            sx={{...chipStyle(false), width: '64px', height: '64px'}}
+                            sx={{...chipStyle(false), width: '96px', height: '96px'}}
                         >
-                            <IconFileDescription size={40} />
+                            <IconFileDescription size={64} />
                         </IconButton>
                     </Box>
                 </Box>

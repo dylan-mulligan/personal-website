@@ -19,8 +19,9 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 width: '90%',
+                height: 'calc(100vh - 2em)',
                 maxWidth: '950px',
-                maxHeight: '975px',
+                maxHeight: '1200px',
                 bgcolor: 'background.paper',
                 boxShadow: 24,
                 display: 'flex',
@@ -35,11 +36,11 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     alignItems: 'center',
                     width: '100%',
                     pl: 3,
-                    pt: 3,
-                    pr: 3,
-                    mb: 2
+                    pr: 2,
+                    mt: 2,
+                    mb: 1
                 }}>
-                    <Typography variant="h3">
+                    <Typography variant="h4">
                         Resume
                     </Typography>
                     <IconButton onClick={onClose}>
@@ -52,7 +53,7 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     maxWidth: 'calc(100% - 2em)',
                     borderRadius: 1,
                     mb: 2,
-                    height: 'calc(100vh - 175px)',
+                    height: '100%',
                     background: 'white',
                 }}>
                     <object data={resumeUrl} type="application/pdf" width="100%" height="100%">
