@@ -80,10 +80,11 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
         marginBottom: 1,
         padding: 2,
         paddingBottom: 1.5,
-        transition: 'border 0.3s ease-in-out',
+        transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         '&:hover': {
             border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.info.main}`,
-            transition: 'border 0.3s ease-in-out',
+            boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)',
+            transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         },
     });
 

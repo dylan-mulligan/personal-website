@@ -1,5 +1,5 @@
 import React, { JSX, useState } from "react";
-import { Box, Typography, useTheme, useMediaQuery, IconButton, Button } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery, IconButton, Button, Snackbar } from "@mui/material";
 import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
 import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
@@ -23,11 +23,18 @@ const Portfolio: React.FC = (): JSX.Element => {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const [resumeModalOpen, setResumeModalOpen] = useState(false);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
 
     const scalingVariant = useMediaQuery(theme.breakpoints.down("sm")) ? "subtitle1" : "h5";
 
     const handleResumeModalOpen = () => setResumeModalOpen(true);
     const handleResumeModalClose = () => setResumeModalOpen(false);
+    const handleSnackbarClose = () => setSnackbarOpen(false);
+
+    const handlePhoneNumberClick = () => {
+        navigator.clipboard.writeText("(860) 885-8661");
+        setSnackbarOpen(true);
+    };
 
     const chipStyle = (expandOnHover: boolean) => {
         return {
@@ -42,6 +49,7 @@ const Portfolio: React.FC = (): JSX.Element => {
             minHeight: 50,
             minWidth: 50,
             position: 'relative',
+            transition: 'box-shadow 0.3s ease',
             '& .MuiChip-label': {
                 display: 'flex',
                 alignItems: 'center',
@@ -58,6 +66,7 @@ const Portfolio: React.FC = (): JSX.Element => {
             '&:hover': {
                 boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)',
                 backgroundColor: theme.palette.background.default,
+                transition: 'box-shadow 0.3s ease',
             },
         };
     };
@@ -142,6 +151,7 @@ const Portfolio: React.FC = (): JSX.Element => {
                     <Button
                         startIcon={<IconPhone />}
                         sx={contactButtonStyle}
+                        onClick={handlePhoneNumberClick}
                     >
                         (860) 885-8661
                     </Button>
@@ -162,8 +172,12 @@ const Portfolio: React.FC = (): JSX.Element => {
                         linkedin.com/in/dylan-mulligan
                     </Button>
                 </Box>
-                <Box sx={headerBoxStyle(true)}>
-                    <Typography variant="h4" textAlign={"center"} position="absolute">
+                <Box sx={{
+                    ...headerBoxStyle(true),
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Typography variant="h4" textAlign={"center"}>
                         Resume
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -185,6 +199,12 @@ const Portfolio: React.FC = (): JSX.Element => {
                 <ExpandableList items={projects ?? []} chipStyle={chipStyle} />
             </Box>
             <ResumeModal open={resumeModalOpen} onClose={handleResumeModalClose} resumeUrl="https://pub-23ec377c65844af8b2a21a08d41024df.r2.dev/resume.pdf" />
+            <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={2500}
+                onClose={handleSnackbarClose}
+                message="Phone number copied to clipboard"
+            />
         </Box>
     );
 };

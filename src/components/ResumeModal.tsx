@@ -56,7 +56,9 @@ const ResumeModal: React.FC<ResumeModalProps> = ({ open, onClose, resumeUrl }
                     background: 'white',
                 }}>
                     <object data={resumeUrl} type="application/pdf" width="100%" height="100%">
-                        <iframe title="resume.pdf" src={resumeUrl} width="100%" height="100%" style={{border: "none"}}/>
+                        <iframe title="resume.pdf" src={resumeUrl} width="100%" height="100%" style={{border: "none"}}>
+                            You need a Frames Capable browser to view this content.
+                        </iframe>
                     </object>
                 </Box>
             </Box>
