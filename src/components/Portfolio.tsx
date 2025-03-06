@@ -1,8 +1,8 @@
 import React, { JSX, useState } from "react";
-import { Box, Typography, useTheme, useMediaQuery, IconButton, Link } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery, IconButton, Button } from "@mui/material";
 import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
-import { IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
 
 let projects = [];
 let experiences = [];
@@ -34,7 +34,7 @@ const Portfolio: React.FC = (): JSX.Element => {
             border: `none`,
             padding: 1.5,
             marginBottom: 1,
-            backgroundColor: theme.palette.background.paper,
+            backgroundColor: theme.palette.background.default,
             color: theme.palette.text.primary,
             display: 'flex',
             alignItems: 'center',
@@ -56,10 +56,35 @@ const Portfolio: React.FC = (): JSX.Element => {
                 marginLeft: expandOnHover ? '-10px' : '0',
             },
             '&:hover': {
-                boxShadow: '0px 8px 8px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)',
+                backgroundColor: theme.palette.background.default,
             },
         };
     };
+
+    const headerBoxStyle = (alignCenter: boolean) => ({
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 0.25,
+        width: '275px',
+        height: '225px',
+        alignItems: alignCenter ? 'center' : 'flex-start',
+        border: `2px solid ${theme.palette.divider}`,
+        transition: 'border 0.3s ease-in-out',
+        borderRadius: 2,
+        p: 1,
+        '&:hover': {
+            border: `2px solid ${theme.palette.info.main}`,
+            transition: 'border 0.5s ease-in-out',
+        },
+    });
+
+    const contactButtonStyle = {
+        justifyContent: 'flex-start',
+        flexGrow: 1,
+        display: 'flex',
+        width: '100%'
+    }
 
     return (
         <Box
@@ -86,10 +111,10 @@ const Portfolio: React.FC = (): JSX.Element => {
                 Dylan Mulligan
             </Typography>
             <Typography variant={scalingVariant} textAlign="center">
-                Cloud & Security Enthusiast ☁️🔒
+                Backend Brain 🧠, Frontend Flair 🎉
             </Typography>
             <Typography variant={scalingVariant} textAlign="center">
-                Backend Brain 🧠, Frontend Flair 🎉
+                Fast, Clean, and Scalable 🏎️
             </Typography>
             <Typography variant={scalingVariant} textAlign="center">
                 Full-Stack Architect 🛠️
@@ -105,28 +130,50 @@ const Portfolio: React.FC = (): JSX.Element => {
                 padding: 2,
                 gap: 4
             }}>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, width: '250px', alignItems: 'center' }}>
-                    <Typography variant="h6" textAlign={"center"}>Contact</Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <IconMail />
-                        <Typography variant="body2">
-                            <Link href="mailto:dylan.mulligan2020@gmail.com">dylan.mulligan2020@gmail.com</Link>
-                        </Typography>
-                    </Box>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <IconPhone />
-                        <Typography variant="body2">(860) 885-8661</Typography>
-                    </Box>
-                </Box>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'center', width: '250px' }}>
-                    <Typography variant="h6" textAlign={"center"}>Resume</Typography>
-                    <IconButton
-                        onClick={handleResumeModalOpen}
-                        size="large"
-                        sx={chipStyle(false)}
+                <Box sx={headerBoxStyle(false)}>
+                    <Typography variant="h4" textAlign={"center"} alignSelf={"center"}>Contact</Typography>
+                    <Button
+                        startIcon={<IconMail />}
+                        href="mailto:dylan.mulligan2020@gmail.com"
+                        sx={contactButtonStyle}
                     >
-                        <IconFileDescription />
-                    </IconButton>
+                        dylan.mulligan2020@gmail.com
+                    </Button>
+                    <Button
+                        startIcon={<IconPhone />}
+                        sx={contactButtonStyle}
+                    >
+                        (860) 885-8661
+                    </Button>
+                    <Button
+                        startIcon={<IconBrandGithub />}
+                        href="https://github.com/dylan-mulligan"
+                        target="_blank"
+                        sx={contactButtonStyle}
+                    >
+                        github.com/dylan-mulligan
+                    </Button>
+                    <Button
+                        startIcon={<IconBrandLinkedin />}
+                        href="https://www.linkedin.com/in/dylan-mulligan"
+                        target="_blank"
+                        sx={contactButtonStyle}
+                    >
+                        linkedin.com/in/dylan-mulligan
+                    </Button>
+                </Box>
+                <Box sx={headerBoxStyle(true)}>
+                    <Typography variant="h4" textAlign={"center"} position="absolute">
+                        Resume
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <IconButton
+                            onClick={handleResumeModalOpen}
+                            sx={{...chipStyle(false), width: '64px', height: '64px'}}
+                        >
+                            <IconFileDescription size={40} />
+                        </IconButton>
+                    </Box>
                 </Box>
             </Box>
             <Box>

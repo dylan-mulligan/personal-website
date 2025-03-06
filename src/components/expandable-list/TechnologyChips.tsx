@@ -46,8 +46,6 @@ const TechnologyChips: React.FC<TechnologyChipsProps> = ({
                             component="a"
                             icon={<TechnologyIcon iconName={tech.name}/>}
                             href={tech.url}
-                            clickable
-                            variant="outlined"
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={chipStyle}

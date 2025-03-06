@@ -5,7 +5,7 @@ import TechnologyIcon from './TechnologyIcon';
 /**
  * Props for the ListDetails component.
  */
-interface ListDetailsProps {
+interface ListItemDetailsProps {
     technologies: string[];
     details: string;
     startDate: string;
@@ -19,14 +19,14 @@ interface ListDetailsProps {
 /**
  * ListDetails component that renders the details of a list item, including technology chips and project details.
  *
- * @param {ListDetailsProps} props - The props for the component.
+ * @param {ListItemDetailsProps} props - The props for the component.
  * @returns {JSX.Element} The rendered component.
  */
-const ListDetails: React.FC<ListDetailsProps> = ({
+const ListItemDetails: React.FC<ListItemDetailsProps> = ({
        technologies, details, startDate,
        endDate, isSmallScreen, isMediumScreen,
        getTechnologyDetails, chipStyle
-   }: ListDetailsProps): React.JSX.Element => (
+   }: ListItemDetailsProps): React.JSX.Element => (
     <Box sx={{ paddingBottom: 2, paddingLeft: 2, paddingRight: 2, paddingTop: 1 }}>
         {/* Display start and end dates on small screen sizes */}
         {isSmallScreen &&
@@ -36,7 +36,7 @@ const ListDetails: React.FC<ListDetailsProps> = ({
         }
         {/* Display technology chips for medium and smaller screens (bottom right of the box)*/}
         {isMediumScreen && (
-            <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap" }}>
+            <Box sx={{ display: "flex", gap: 1, overflow: "auto", flexWrap: "wrap", pl: 1, pr: 1 }}>
                 {technologies.map((techName, techIndex) => {
                     const tech = getTechnologyDetails(techName);
                     return tech ? (
@@ -46,8 +46,6 @@ const ListDetails: React.FC<ListDetailsProps> = ({
                             label={tech.name}
                             component="a"
                             href={tech.url}
-                            clickable
-                            variant="outlined"
                             target="_blank"
                             rel="noopener noreferrer"
                             sx={chipStyle}
@@ -62,4 +60,4 @@ const ListDetails: React.FC<ListDetailsProps> = ({
     </Box>
 );
 
-export default ListDetails;
+export default ListItemDetails;

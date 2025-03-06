@@ -3,7 +3,7 @@
     "title": "Personal Portfolio Website",
     "subtitle": "Responsive personal portfolio website showcasing projects and skills",
     "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a GitHub Actions workflow for continuous integration and deployment, automating the build and deployment process to GitHub Pages. Followed best practices in code organization and version control to maintain a clean and maintainable codebase.",
-    "technologies": ["TypeScript", "React", "Material-UI", "GH Actions CI/CD", "GH Pages"],
+    "technologies": ["TypeScript", "Material-UI", "Cloudflare Workers", "Cloudflare Pages", "Cloudflare R2"],
     "startDate": "Jan 2025",
     "endDate": "Present",
     "projectUrl": "https://github.com/dylan-mulligan/personal-website"

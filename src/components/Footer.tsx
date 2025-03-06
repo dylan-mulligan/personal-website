@@ -2,20 +2,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
-            {'Copyright © '}
-            &nbsp;
-        </Typography>
-    );
-}
+import {Button, Link} from "@mui/material";
+import {IconBrandGithub} from "@tabler/icons-react";
 
 export default function Footer() {
     return (
@@ -39,69 +28,74 @@ export default function Footer() {
                         width: '100%',
                     }}
                 >
-                    <div>
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                            <a href="https://github.com/dylan-mulligan/personal-website" target="_blank" rel="noopener noreferrer" style={{ color: 'gray' }}>
-                                View source code
-                            </a>
-                        </Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                        <Button
+                            color="inherit"
+                            size="medium"
+                            href="https://github.com/dylan-mulligan/personal-website"
+                            target="_blank"
+                            startIcon={<IconBrandGithub />}
+                            sx={{ marginLeft: 0, width: 150 }}
+                            variant="contained"
+                        >
+                            Source Code
+                        </Button>
                         <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1, mr: 2 }}>
-                            Built with <a
+                            Built with <Link
                                 href="https://reactjs.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 style={{ color: 'gray' }}
                             >
                                 React
-                            </a>, <a
+                            </Link>, <Link
                                 href="https://www.typescriptlang.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 style={{ color: 'gray' }}
                             >
                                 TypeScript
-                            </a>, <a
+                            </Link>, <Link
                                 href="https://mui.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 style={{ color: 'gray' }}
                             >
                                 Material-UI
-                            </a>, and <a
+                            </Link>, and <Link
                             href="https://tabler-icons.io/"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ color: 'gray' }}
                         >
                             Tabler
-                        </a>
+                        </Link>.
                         </Typography>
-                    </div>
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        useFlexGap
-                        sx={{ justifyContent: 'left', color: 'text.secondary' }}
-                    >
-                        <IconButton
-                            color="inherit"
-                            size="large"
-                            href="https://github.com/dylan-mulligan/"
-                            aria-label="GitHub"
-                            sx={{ alignSelf: 'center' }}
+                        <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1, mr: 2 }}>
+                            <Link
+                                href="https://workers.cloudflare.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: 'gray' }}
+                            >
+                                Automatically
+                            </Link> deployed to <Link
+                            href="https://pages.cloudflare.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: 'gray' }}
                         >
-                            <GitHubIcon fontSize="inherit" />
-                        </IconButton>
-                        <IconButton
-                            color="inherit"
-                            size="large"
-                            href="https://www.linkedin.com/in/dylan-mulligan-se/"
-                            aria-label="LinkedIn"
-                            sx={{ alignSelf: 'center' }}
+                            Cloudflare Pages
+                        </Link>, with <Link
+                            href="https://www.cloudflare.com/developer-platform/products/r2/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: 'gray' }}
                         >
-                            <LinkedInIcon fontSize="inherit" />
-                        </IconButton>
-                    </Stack>
+                            Cloudflare R2
+                        </Link> for asset hosting and caching.
+                        </Typography>
+                    </Box>
                 </Box>
             </Container>
         </React.Fragment>

@@ -110,17 +110,17 @@ export default function NavBar() {
                     )}
                     <Box
                         sx={{
-                            display: isSmallScreen ? 'none' : 'flex',
+                            display: 'flex',
                             gap: 1,
                             alignItems: 'center',
                         }}
                     >
-                        <Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>
-                            Sign in
-                        </Button>
+                        {/*<Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>*/}
+                        {/*    Sign in*/}
+                        {/*</Button>*/}
                         <ColorModeIconDropdown />
                     </Box>
-                    <Box sx={{ display: isSmallScreen ? 'flex' : 'none', gap: 1 }}>
+                    {/*<Box sx={{ display: isSmallScreen ? 'flex' : 'none', gap: 1 }}>
                         <ColorModeIconDropdown size="medium" />
                         <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
                             <MenuIcon />
@@ -153,7 +153,7 @@ export default function NavBar() {
                                 </MenuItem>
                             </Box>
                         </Drawer>
-                    </Box>
+                    </Box>*/}
                 </StyledToolbar>
                 <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
             </Container>

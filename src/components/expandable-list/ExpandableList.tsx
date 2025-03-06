@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import technologiesData from '../../data/technologies.json';
 import ListItemContent from './ListItemContent';
 import TechnologyChips from './TechnologyChips';
-import ListDetails from './ListDetails';
+import ListItemDetails from './ListItemDetails';
 
 /**
  * Interface representing an expandable item in the list.
@@ -75,11 +75,16 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
-        border: `2px solid ${expandedItem === index ? theme.palette.info.main : theme.palette.divider}`,
+        border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.divider}`,
         borderRadius: 3,
         marginBottom: 1,
         padding: 2,
-        paddingBottom: 1.5
+        paddingBottom: 1.5,
+        transition: 'border 0.3s ease-in-out',
+        '&:hover': {
+            border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.info.main}`,
+            transition: 'border 0.3s ease-in-out',
+        },
     });
 
     /**
@@ -128,7 +133,7 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
                         </ListItem>
                         {/* Collapsible list item details section, has project details and chips for small resolutions */}
                         <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>
-                            <ListDetails
+                            <ListItemDetails
                                 technologies={item.technologies}
                                 details={item.details}
                                 startDate={item.startDate}
