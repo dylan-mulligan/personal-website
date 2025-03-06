@@ -136,7 +136,7 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
                                             <Button
                                                 color="inherit"
                                                 size="medium"
-                                                href="https://github.com/dylan-mulligan/personal-website"
+                                                href={item.projectUrl}
                                                 target="_blank"
                                                 startIcon={<IconBrandGithub />}
                                                 sx={{ marginLeft: 0, width: 150 }}
