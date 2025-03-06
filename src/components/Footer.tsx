@@ -33,7 +33,7 @@ export default function Footer() {
                             href="https://github.com/dylan-mulligan/personal-website"
                             target="_blank"
                             startIcon={<IconBrandGithub />}
-                            sx={{ marginLeft: 0, width: 150, mt: 4 }}
+                            sx={{ marginLeft: 0, width: 150, mt: 4, mb: 1 }}
                             variant="contained"
                         >
                             Source Code
