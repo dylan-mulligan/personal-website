@@ -1,36 +1,20 @@
 import React from 'react';
-import { Box, ListItemText, Button } from '@mui/material';
-import { IconBrandGithub } from '@tabler/icons-react';
+import { Box, ListItemText } from '@mui/material';
 
 interface ListItemContentProps {
     title: string;
     subtitle: string;
     projectUrl?: string;
     isXSmallScreen: boolean;
-    onClick: (event: any) => void;
 }
 
-const ListItemContent: React.FC<ListItemContentProps> = ({ title, subtitle, projectUrl, isXSmallScreen, onClick }) => (
+const ListItemContent: React.FC<ListItemContentProps> = (props) => (
     <Box sx={{ display: "flex", alignItems: "left", flexGrow: 1, justifyContent: "flex-start", flexDirection: "column" }}>
         <ListItemText
-            primary={title}
-            secondary={subtitle}
-            sx={{ width: isXSmallScreen ? 250 : 325, flexGrow: 0 }}
+            primary={props.title}
+            secondary={props.subtitle}
+            sx={{ width: props.isXSmallScreen ? 250 : 325, flexGrow: 0 }}
         />
-        {projectUrl &&
-            <Button
-                color="inherit"
-                size="medium"
-                href={projectUrl}
-                target="_blank"
-                startIcon={<IconBrandGithub />}
-                sx={{ marginLeft: 0, width: 150 }}
-                onClick={onClick}
-                variant="contained"
-            >
-                Source Code
-            </Button>
-        }
     </Box>
 );
 

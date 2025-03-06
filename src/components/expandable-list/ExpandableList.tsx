@@ -5,6 +5,7 @@ import technologiesData from '../../data/technologies.json';
 import ListItemContent from './ListItemContent';
 import TechnologyChips from './TechnologyChips';
 import ListItemDetails from './ListItemDetails';
+import Typography from "@mui/material/Typography";
 
 /**
  * Interface representing an expandable item in the list.
@@ -108,22 +109,27 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
                     <Box key={index}>
                         <ListItem
                             onClick={() => handleToggle(index)}
-                            sx={listItemStyle(index)}
+                            sx={{
+                                ...listItemStyle(index),
+                                flexDirection: 'column',
+                                alignItems: 'stretch'
+                            }}
                         >
-                            {/* Content of the list item (title, subtitle, source) */}
-                            <ListItemContent
-                                title={item.title}
-                                subtitle={item.subtitle}
-                                projectUrl={item.projectUrl}
-                                isXSmallScreen={isXSmallScreen}
-                                onClick={(event) => event.stopPropagation()}
-                            />
-                            {/* Technology chips on the list items and start-end date of item */}
+                            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                <ListItemContent
+                                    title={item.title}
+                                    subtitle={item.subtitle}
+                                    projectUrl={item.projectUrl}
+                                    isXSmallScreen={isXSmallScreen}
+                                />
+                                {!isSmallScreen && item.startDate && item.endDate && (
+                                    <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
+                                        {item.startDate} - {item.endDate}
+                                    </Typography>
+                                )}
+                            </Box>
                             <TechnologyChips
                                 technologies={item.technologies}
-                                startDate={item.startDate}
-                                endDate={item.endDate}
-                                isSmallScreen={isSmallScreen}
                                 isMediumScreen={isMediumScreen}
                                 hoveredChip={hoveredChip}
                                 setHoveredChip={setHoveredChip}
