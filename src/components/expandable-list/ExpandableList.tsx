@@ -1,11 +1,12 @@
 import React, { JSX, useState, useEffect } from "react";
-import {Box, Collapse, List, ListItem, useMediaQuery} from "@mui/material";
+import {Box, Button, Collapse, List, ListItem, useMediaQuery} from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import technologiesData from '../../data/technologies.json';
 import ListItemContent from './ListItemContent';
 import TechnologyChips from './TechnologyChips';
 import ListItemDetails from './ListItemDetails';
 import Typography from "@mui/material/Typography";
+import {IconBrandGithub} from "@tabler/icons-react";
 
 /**
  * Interface representing an expandable item in the list.
@@ -112,31 +113,51 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
                             sx={{
                                 ...listItemStyle(index),
                                 flexDirection: 'column',
-                                alignItems: 'stretch'
+                                alignItems: 'stretch',
+                                position: 'relative'
                             }}
                         >
-                            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                                <ListItemContent
-                                    title={item.title}
-                                    subtitle={item.subtitle}
-                                    projectUrl={item.projectUrl}
-                                    isXSmallScreen={isXSmallScreen}
-                                />
-                                {!isSmallScreen && item.startDate && item.endDate && (
-                                    <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
-                                        {item.startDate} - {item.endDate}
-                                    </Typography>
-                                )}
+                            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                                    <ListItemContent
+                                        title={item.title}
+                                        subtitle={item.subtitle}
+                                        isXSmallScreen={isXSmallScreen}
+                                    />
+                                    {!isSmallScreen && item.startDate && item.endDate && (
+                                        <Typography variant="body2" sx={{ textAlign: "right", whiteSpace: "nowrap", marginLeft: 1 }}>
+                                            {item.startDate} - {item.endDate}
+                                        </Typography>
+                                    )}
+                                </Box>
+                                <Box sx={{ display: 'flex', justifyContent: item.projectUrl ? 'space-between' : 'flex-end', width: '100%' }}>
+                                    {item.projectUrl && (
+                                        <Box sx={{ marginTop: 2 }}>
+                                            <Button
+                                                color="inherit"
+                                                size="medium"
+                                                href="https://github.com/dylan-mulligan/personal-website"
+                                                target="_blank"
+                                                startIcon={<IconBrandGithub />}
+                                                sx={{ marginLeft: 0, width: 150 }}
+                                                variant="contained"
+                                                onClick={(event) => event.stopPropagation()}
+                                            >
+                                                Source Code
+                                            </Button>
+                                        </Box>
+                                    )}
+                                    <TechnologyChips
+                                        technologies={item.technologies}
+                                        isMediumScreen={isMediumScreen}
+                                        hoveredChip={hoveredChip}
+                                        setHoveredChip={setHoveredChip}
+                                        getTechnologyDetails={getTechnologyDetails}
+                                        indexBase={chipIndexCounter}
+                                        chipStyle={props.chipStyle(true)}
+                                    />
+                                </Box>
                             </Box>
-                            <TechnologyChips
-                                technologies={item.technologies}
-                                isMediumScreen={isMediumScreen}
-                                hoveredChip={hoveredChip}
-                                setHoveredChip={setHoveredChip}
-                                getTechnologyDetails={getTechnologyDetails}
-                                indexBase={chipIndexCounter}
-                                chipStyle={props.chipStyle(true)}
-                            />
                         </ListItem>
                         {/* Collapsible list item details section, has project details and chips for small resolutions */}
                         <Collapse in={expandedItem === index} timeout="auto" unmountOnExit>

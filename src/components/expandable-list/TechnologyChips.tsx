@@ -19,7 +19,7 @@ const TechnologyChips: React.FC<TechnologyChipsProps> = ({
 }) => (
     <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
         {!isMediumScreen && (
-            <Box sx={{ display: "flex", gap: 1, marginTop: 2, marginBottom: 0 }}>
+            <Box sx={{ display: "flex", gap: 1, marginTop: 0, marginBottom: 0 }}>
                 {technologies.map((techName, techIndex) => {
                     const tech = getTechnologyDetails(techName);
                     const chipKey = `${indexBase + techIndex}-${techName}`;
