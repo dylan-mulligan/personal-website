@@ -94,5 +94,17 @@
   {
     "name": "GitLab CI/CD",
     "url": "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/"
+  },
+  {
+    "name": "Cloudflare Workers",
+    "url": "https://workers.cloudflare.com/"
+  },
+  {
+    "name": "Cloudflare Pages",
+    "url": "https://pages.cloudflare.com/"
+  },
+  {
+    "name": "Cloudflare R2",
+    "url": "https://www.cloudflare.com/developer-platform/products/r2/"
   }
 ]
