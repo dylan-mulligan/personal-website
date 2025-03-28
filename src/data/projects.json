@@ -1,14 +1,5 @@
 [
   {
-    "title": "Personal Portfolio Website",
-    "subtitle": "Responsive personal portfolio website showcasing projects and skills",
-    "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a deployment workflow using Cloudflare Workers, Pages, and R2 (for S3 API asset hosting), automating the build and deployment process. Followed best practices in code organization and version control to maintain a clean and maintainable codebase. The application supports all common screen sizes and devices, ensuring a seamless user experience on any platform.",
-    "technologies": ["TypeScript", "Material-UI", "Cloudflare Workers", "Cloudflare Pages", "Cloudflare R2"],
-    "startDate": "Jan 2025",
-    "endDate": "Present",
-    "projectUrl": "https://github.com/dylan-mulligan/personal-website"
-  },
-  {
     "title": "Single Pane of Glass - Honeywell",
     "subtitle": "Web app for centralizing data visualization across cloud data sources",
     "details": "Contributed to both frontend and backend development, focusing on scalability, maintainability, and deployment efficiency. On the frontend, I designed a dedicated marketplace page for KPI selection, which is prepared for integration with role-based access control (RBAC) to ensure secure and tailored user experiences. I also led a MaterialUI overhaul to enhance visual responsiveness, maintainability, and global theming, while transitioning the frontend to TypeScript for improved scalability. Beyond development, I revamped documentation to streamline onboarding and future development. On the full-stack side, I optimized containerized deployments using Docker Compose, simplifying service management and improving deployment consistency across environments.",
@@ -42,6 +33,15 @@
     "endDate": "May 2023"
   },
   {
+    "title": "Personal Portfolio Website",
+    "subtitle": "Responsive personal portfolio website showcasing projects and skills",
+    "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a deployment workflow using Cloudflare Workers, Pages, and R2 (for S3 API asset hosting), automating the build and deployment process. Followed best practices in code organization and version control to maintain a clean and maintainable codebase. The application supports all common screen sizes and devices, ensuring a seamless user experience on any platform.",
+    "technologies": ["TypeScript", "Material-UI", "Cloudflare Workers", "Cloudflare Pages", "Cloudflare R2"],
+    "startDate": "Jan 2025",
+    "endDate": "Present",
+    "projectUrl": "https://github.com/dylan-mulligan/personal-website"
+  },
+  {
     "title": "Multi-User Dungeon (M.U.D.)",
     "subtitle": "A text-based dungeon game utilizing design patterns for command handling and state management",
     "details": "Engineered a modular Multi-User Dungeon (M.U.D.) game using object-oriented principles and design patterns to ensure scalability and maintainability. Implemented the Memento pattern to manage game state persistence, enabling seamless save/load functionality. Designed a flexible command processing system using the Command pattern, allowing dynamic player interactions through a CLI interface. Applied encapsulation and separation of concerns to create a well-structured game architecture, supporting future expansions such as graphical user interfaces. Emphasized clean code practices and extensibility to facilitate long-term maintainability and potential multiplayer integration.",
@@ -49,5 +49,4 @@
     "startDate": "Sep 2021",
     "endDate": "Dec 2021"
   }
-
 ]
