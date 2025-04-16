@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-This project is a personal portfolio website built using [Create React App](https://create-react-app.dev/), [TypeScript](https://www.typescriptlang.org/), and [Material-UI](https://mui.com/). It is deployed as a static page using GitHub Pages and GitHub Actions.
+This project is a personal portfolio website built using [Create React App](https://create-react-app.dev/), [TypeScript](https://www.typescriptlang.org/), and [Material-UI](https://mui.com/). It is automatically deployed as a static page using Cloudflare Pages and Workers.
 
 ## Table of Contents
 - [Live Site](#live-site)
@@ -15,7 +15,7 @@ This project is a personal portfolio website built using [Create React App](http
 
 ## Live Site
 
-The latest build is automatically hosted via GitHub Actions at:  
+The latest build is automatically hosted at:  
 [https://dylanmulligan.com](https://dylanmulligan.com)
 
 ## Getting Started
@@ -65,31 +65,22 @@ This creates a `build/` directory containing the optimized static files.
 
 ## Deployment
 
-The project is automatically deployed to GitHub Pages using GitHub Actions. The deployment process is defined in the `.github/workflows/deploy.yml` file.
+The project is automatically deployed to Cloudflare Pages. Deployments are triggered by merging pull requests into the `master` branch. Additionally, development preview deployments are created automatically for each pull request.
 
-### GitHub Actions Workflow
+### Deployment Process
 
-The deployment workflow executes the following steps:
+1. **Pull Request Workflow:**  
+   - When a pull request is created, Cloudflare Pages automatically generates a development preview deployment. This allows contributors to review changes in a live environment before merging.
 
-1. **Checkout the repository:**
-   
-   Uses `actions/checkout@v2` to clone the repository.
+2. **Merge to `master`:**  
+   - Once the pull request is approved and merged into the `master` branch, Cloudflare Pages triggers the production deployment automatically.
 
-2. **Set up Node.js:**
-   
-   Uses `actions/setup-node@v2` to set up the Node.js environment.
+3. **Build Configuration:**  
+   Cloudflare Pages uses the following settings (configured in the Cloudflare Pages dashboard):  
+   - **Build command:** `npm run build`  
+   - **Output directory:** `build/`  
 
-3. **Install dependencies:**
-   
-   Runs `npm install --legacy-peer-deps` to install project dependencies.
-
-4. **Build the application:**
-   
-   Runs `npm run build` to create an optimized production build.
-
-5. **Deploy to GitHub Pages:**
-   
-   Uses `peaceiris/actions-gh-pages@v3` to deploy the contents of the `build/` directory to the `gh-pages` branch, which GitHub Pages serves as the live site.
+The deployment process ensures a seamless workflow with preview environments for testing and a stable production deployment upon merging changes.
 
 ### Manual Deployment
 
