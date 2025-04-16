@@ -62,6 +62,7 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
+        disableScrollLock={true}
         slotProps={{
           paper: {
             variant: 'outlined',

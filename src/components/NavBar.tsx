@@ -87,6 +87,7 @@ export default function NavBar() {
                 bgcolor: 'transparent',
                 backgroundImage: 'none',
                 mt: 'calc(var(--template-frame-height, 0px) + 28px)',
+                pr: '0 !important'
             }}
         >
             <Container maxWidth="lg">
@@ -115,45 +116,8 @@ export default function NavBar() {
                             alignItems: 'center',
                         }}
                     >
-                        {/*<Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>*/}
-                        {/*    Sign in*/}
-                        {/*</Button>*/}
                         <ColorModeIconDropdown />
                     </Box>
-                    {/*<Box sx={{ display: isSmallScreen ? 'flex' : 'none', gap: 1 }}>
-                        <ColorModeIconDropdown size="medium" />
-                        <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Drawer
-                            anchor="top"
-                            open={open}
-                            onClose={toggleDrawer(false)}
-                            PaperProps={{
-                                sx: {
-                                    top: 'var(--template-frame-height, 0px)',
-                                },
-                            }}
-                        >
-                            <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        justifyContent: 'flex-end',
-                                    }}
-                                >
-                                    <IconButton onClick={toggleDrawer(false)}>
-                                        <CloseRoundedIcon />
-                                    </IconButton>
-                                </Box>
-                                <MenuItem>
-                                    <Button color="primary" variant="text" size="small" onClick={handleLoginModalOpen}>
-                                        Sign in
-                                    </Button>
-                                </MenuItem>
-                            </Box>
-                        </Drawer>
-                    </Box>*/}
                 </StyledToolbar>
                 <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
             </Container>
