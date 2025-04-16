@@ -16,7 +16,7 @@ export default function App(props: { disableCustomTheme?: boolean }) {
             <Container
                 maxWidth="lg"
                 component="main"
-                sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4, pr: '0 !important'}}
+                sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4, pr: '12px !important', pl: '12px !important'}}
             >
                 <Portfolio/>
             </Container>
