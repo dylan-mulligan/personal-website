@@ -106,5 +106,9 @@
   {
     "name": "Cloudflare R2",
     "url": "https://www.cloudflare.com/developer-platform/products/r2/"
+  },
+  {
+    "name": "AWS",
+    "url": "https://aws.amazon.com/"
   }
 ]

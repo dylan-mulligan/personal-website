@@ -1,7 +1,7 @@
 [
   {
     "title": "RIT ESL Global Cybersecurity Institute",
-    "subtitle": "Team Lead - Software Security",
+    "subtitle": "Team Lead / Software Security Engineer",
     "details": "Led a team of developers in advancing security-focused software initiatives, overseeing the continued development of the SBOM generation tool and National Vulnerability Intelligence Platform. Defined and enforced best practices in system design, testing automation, and CI/CD to improve software reliability and maintainability. Coordinated cross-functional collaboration between developers, security analysts, and QA engineers to optimize workflows. Guided the integration of advanced security analysis techniques into microservices architecture, ensuring scalable and secure solutions.",
     "technologies": ["PostgreSQL", "Spring Boot", "Docker", "JUnit", "Selenium", "CI/CD"],
     "startDate": "Apr 2023",
@@ -10,8 +10,8 @@
   {
     "title": "RIT ESL Global Cybersecurity Institute",
     "subtitle": "Software Security Engineer",
-    "details": "Developed security-focused software solutions, including an automated SBOM generation tool and the National Vulnerability Intelligence Platform. Designed and implemented scalable microservices using Java Spring Boot to facilitate efficient software dependency analysis. Optimized PostgreSQL queries and schemas for improved data retrieval performance. Built comprehensive end-to-end testing suites using JUnit and Selenium to ensure system reliability. Established CI/CD pipelines with Docker and GitHub Actions, automating testing and deployment to streamline development processes.",
-    "technologies": ["PostgreSQL", "Spring Boot", "Docker", "JUnit", "Selenium", "CI/CD"],
+    "details": "Developed security-focused software solutions, including an automated SBOM generation tool and the National Vulnerability Intelligence Platform. Designed and implemented scalable microservices using Java Spring Boot to facilitate efficient software dependency analysis. Optimized PostgreSQL queries and schemas for improved data retrieval performance. Built comprehensive end-to-end testing suites using JUnit and Selenium to ensure system reliability. Established CI/CD pipelines with Docker and GitHub Actions, automating testing and deployment to streamline development processes. Utilized AWS for deploying and managing project infrastructure.",
+    "technologies": ["PostgreSQL", "Spring Boot", "Docker", "JUnit", "Selenium", "CI/CD", "AWS"],
     "startDate": "Dec 2022",
     "endDate": "Apr 2023"
   },

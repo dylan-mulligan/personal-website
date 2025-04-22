@@ -3,10 +3,11 @@ import {
     IconAi, IconBrandChrome, IconBrandCloudflare, IconBrandDocker,
     IconBrandGithub, IconBrandGitlab, IconBrandJavascript,
     IconBrandMongodb, IconBrandMysql, IconBrandNodejs,
-    IconBrandPython, IconBrandReact, IconBrandTypescript, IconBucket,
-    IconBuildingCastle, IconDatabase, IconFeather, IconFileDescription, IconFiles,
+    IconBrandPython, IconBrandReact, IconBrandTypescript,
+    IconBuildingCastle, IconDatabase, IconFeather, IconFiles,
     IconFileUnknown, IconHexagon, IconLayout, IconLetterJ, IconRocket,
-    IconSchema, IconShip, IconSpyOff, IconTerminal, IconTestPipe
+    IconSchema, IconShip, IconSpyOff, IconTerminal, IconTestPipe,
+    IconBrandAws
 } from '@tabler/icons-react';
 
 interface TechnologyIconProps {
@@ -69,6 +70,8 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconFiles />
         case "Cloudflare R2":
             return <IconRocket />
+        case "AWS":
+            return <IconBrandAws />
         default:
             return <IconFileUnknown />;
     }
