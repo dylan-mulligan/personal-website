@@ -2,7 +2,8 @@ import React, { JSX, useState } from "react";
 import { Box, Typography, useTheme, useMediaQuery, IconButton, Button, Snackbar } from "@mui/material";
 import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
-import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
+import TableOfContents from "./TableOfContents"; // Import TableOfContents
+import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone, IconHash } from "@tabler/icons-react";
 
 let projects = [];
 let experiences = [];
@@ -33,6 +34,12 @@ const Portfolio: React.FC = (): JSX.Element => {
 
     const handlePhoneNumberClick = () => {
         navigator.clipboard.writeText("(860) 885-8661");
+        setSnackbarOpen(true);
+    };
+
+    const handleCopyLink = (id: string) => {
+        const url = `${window.location.origin}${window.location.pathname}#${id}`;
+        navigator.clipboard.writeText(url);
         setSnackbarOpen(true);
     };
 
@@ -99,7 +106,7 @@ const Portfolio: React.FC = (): JSX.Element => {
         <Box
             sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr",
+                gridTemplateColumns: { xs: "1fr", md: "1fr 3fr" }, // Adjust layout for two columns on larger screens
                 gap: 2,
                 height: "100%",
                 width: "100%",
@@ -107,106 +114,138 @@ const Portfolio: React.FC = (): JSX.Element => {
                 padding: 1,
             }}
         >
-            <Typography
-                variant="h2"
-                component="div"
+            <Box
                 sx={{
-                    textAlign: "center",
-                    paddingBottom: 1,
-                    display: { xs: 'block', sm: 'none' },
-                    color: theme.palette.text.primary,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
                 }}
             >
-                Dylan Mulligan
-            </Typography>
-            <Typography variant={scalingVariant} textAlign="center">
-                Backend Brain 🧠, Frontend Flair 🎉
-            </Typography>
-            <Typography variant={scalingVariant} textAlign="center">
-                Fast, Clean, and Scalable 🏎️
-            </Typography>
-            <Typography variant={scalingVariant} textAlign="center">
-                Full-Stack Architect 🛠️
-            </Typography>
-            <Typography variant="body2" textAlign="center">
-                Pushing to Prod & Hoping for the Best 🚀🔥
-            </Typography>
-            <Box sx={{
-                display: 'flex',
-                flexDirection: isSmallScreen ? 'column' : 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 2,
-                gap: 4
-            }}>
-                <Box sx={headerBoxStyle(false)}>
-                    <Typography variant="h4" textAlign={"center"} alignSelf={"center"}>Contact</Typography>
-                    <Button
-                        startIcon={<IconMail />}
-                        href="mailto:dylan.mulligan2020@gmail.com"
-                        sx={contactButtonStyle}
+                <Box id="contact">
+                    <Typography
+                        variant="h2"
+                        component="div"
+                        sx={{
+                            textAlign: "center",
+                            paddingBottom: 1,
+                            display: { xs: 'block', sm: 'none' },
+                            color: theme.palette.text.primary,
+                        }}
                     >
-                        dylan.mulligan2020@gmail.com
-                    </Button>
-                    <Button
-                        startIcon={<IconPhone />}
-                        sx={contactButtonStyle}
-                        onClick={handlePhoneNumberClick}
-                    >
-                        (860) 885-8661
-                    </Button>
-                    <Button
-                        startIcon={<IconBrandGithub />}
-                        href="https://github.com/dylan-mulligan"
-                        target="_blank"
-                        sx={contactButtonStyle}
-                    >
-                        github.com/dylan-mulligan
-                    </Button>
-                    <Button
-                        startIcon={<IconBrandLinkedin />}
-                        href="https://www.linkedin.com/in/dylan-mulligan"
-                        target="_blank"
-                        sx={contactButtonStyle}
-                    >
-                        linkedin.com/in/dylan-mulligan
-                    </Button>
-                </Box>
-                <Box sx={{
-                    ...headerBoxStyle(true),
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
-                    <Typography variant="h4" textAlign={"center"}>
-                        Resume
+                        Dylan Mulligan
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <IconButton
-                            onClick={handleResumeModalOpen}
-                            sx={{...chipStyle(false), width: '96px', height: '96px'}}
-                        >
-                            <IconFileDescription size={64} />
-                        </IconButton>
+                    <Typography variant={scalingVariant} textAlign="center">
+                        Backend Brain 🧠, Frontend Flair 🎉
+                    </Typography>
+                    <Typography variant={scalingVariant} textAlign="center">
+                        Fast, Clean, and Scalable 🏎️
+                    </Typography>
+                    <Typography variant={scalingVariant} textAlign="center">
+                        Full-Stack Architect 🛠️
+                    </Typography>
+                    <Typography variant="body2" textAlign="center">
+                        Pushing to Prod & Hoping for the Best 🚀🔥
+                    </Typography>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: isSmallScreen ? 'column' : 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: 2,
+                        gap: 4
+                    }}>
+                        <Box sx={headerBoxStyle(false)}>
+                            <Typography variant="h4" textAlign={"center"} alignSelf={"center"}>Contact</Typography>
+                            <Button
+                                startIcon={<IconMail />}
+                                href="mailto:dylan.mulligan2020@gmail.com"
+                                sx={contactButtonStyle}
+                            >
+                                dylan.mulligan2020@gmail.com
+                            </Button>
+                            <Button
+                                startIcon={<IconPhone />}
+                                sx={contactButtonStyle}
+                                onClick={handlePhoneNumberClick}
+                            >
+                                (860) 885-8661
+                            </Button>
+                            <Button
+                                startIcon={<IconBrandGithub />}
+                                href="https://github.com/dylan-mulligan"
+                                target="_blank"
+                                sx={contactButtonStyle}
+                            >
+                                github.com/dylan-mulligan
+                            </Button>
+                            <Button
+                                startIcon={<IconBrandLinkedin />}
+                                href="https://www.linkedin.com/in/dylan-mulligan"
+                                target="_blank"
+                                sx={contactButtonStyle}
+                            >
+                                linkedin.com/in/dylan-mulligan
+                            </Button>
+                        </Box>
+                        <Box sx={{
+                            ...headerBoxStyle(true),
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
+                            <Typography variant="h4" textAlign={"center"}>
+                                Resume
+                            </Typography>
+                            <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <IconButton
+                                    onClick={handleResumeModalOpen}
+                                    sx={{...chipStyle(false), width: '96px', height: '96px'}}
+                                >
+                                    <IconFileDescription size={64} />
+                                </IconButton>
+                            </Box>
+                        </Box>
                     </Box>
                 </Box>
+                <Box id="work-experience">
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <Typography variant="h4" textAlign="left">
+                            Work Experience
+                        </Typography>
+                        <IconButton onClick={() => handleCopyLink("work-experience")}>
+                            <IconHash size={20} />
+                        </IconButton>
+                    </Box>
+                    <ExpandableList items={experiences ?? []} chipStyle={chipStyle} />
+                </Box>
+                <Box id="projects">
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <Typography variant="h4" textAlign="left">
+                            Projects
+                        </Typography>
+                        <IconButton onClick={() => handleCopyLink("projects")}>
+                            <IconHash size={20} />
+                        </IconButton>
+                    </Box>
+                    <ExpandableList items={projects ?? []} chipStyle={chipStyle} />
+                </Box>
+                <ResumeModal open={resumeModalOpen} onClose={handleResumeModalClose} resumeUrl="https://pub-23ec377c65844af8b2a21a08d41024df.r2.dev/resume.pdf" />
+                <Snackbar
+                    open={snackbarOpen}
+                    autoHideDuration={2500}
+                    onClose={handleSnackbarClose}
+                    message="Phone number copied to clipboard"
+                />
             </Box>
-            <Box>
-                <Typography variant="h4" textAlign="left">Work Experience</Typography>
-                <ExpandableList items={experiences ?? []} chipStyle={chipStyle} />
+            <Box
+                sx={{
+                    display: { xs: "none", md: "block" },
+                }}
+            >
+                <TableOfContents />
             </Box>
-            <Box>
-                <Typography variant="h4" textAlign="left">Projects</Typography>
-                <ExpandableList items={projects ?? []} chipStyle={chipStyle} />
-            </Box>
-            <ResumeModal open={resumeModalOpen} onClose={handleResumeModalClose} resumeUrl="https://pub-23ec377c65844af8b2a21a08d41024df.r2.dev/resume.pdf" />
-            <Snackbar
-                open={snackbarOpen}
-                autoHideDuration={2500}
-                onClose={handleSnackbarClose}
-                message="Phone number copied to clipboard"
-            />
         </Box>
     );
 };
 
 export default Portfolio;
+
