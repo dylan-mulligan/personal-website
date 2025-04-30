@@ -106,7 +106,7 @@ const Portfolio: React.FC = (): JSX.Element => {
         <Box
             sx={{
                 display: "grid",
-                gridTemplateColumns: { xs: "1fr", md: "1fr 3fr" }, // Adjust layout for two columns on larger screens
+                gridTemplateColumns: { md: "1fr", lg: "2fr 1fr" }, // Adjust layout for two columns on larger screens
                 gap: 2,
                 height: "100%",
                 width: "100%",
@@ -238,7 +238,7 @@ const Portfolio: React.FC = (): JSX.Element => {
             </Box>
             <Box
                 sx={{
-                    display: { xs: "none", md: "block" },
+                    display: { md: "none", lg: "block" },
                 }}
             >
                 <TableOfContents />

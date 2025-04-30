@@ -14,7 +14,7 @@ export default function App(props: { disableCustomTheme?: boolean }) {
             <CssBaseline enableColorScheme/>
             <NavBar/>
             <Container
-                maxWidth="lg"
+                maxWidth="xl"
                 component="main"
                 sx={{display: 'flex', flexDirection: 'column', my: 16, gap: 4, pr: '12px !important', pl: '12px !important'}}
             >

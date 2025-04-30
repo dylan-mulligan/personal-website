@@ -90,7 +90,7 @@ export default function NavBar() {
                 pr: '0 !important'
             }}
         >
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <StyledToolbar variant="dense" disableGutters>
                     <Box sx={{ display: 'flex', alignItems: 'center', px: 0 }}>
                         <Logo />
