@@ -120,7 +120,11 @@ const Portfolio: React.FC = (): JSX.Element => {
                 <Box id="about">
                     <SectionHeader title="About" anchorId="about" theme={theme} />
                     <Typography variant={scalingVariant} textAlign="left" sx={{ pl: 2, pr: 2, pt: 1 }}>
-                        Blending flexible backend design 🧱 with frontend flair 🎉, I specialize in fast 🏎️, clean 🧽, and scalable 🏗️ solutions. As a full-stack architect 🛠️, I thrive on pushing production-ready 🚀 code while ensuring an excellent user experience.
+                        Blending flexible backend design 🧱 with frontend flair 🎉,
+                        I specialize in fast 🏎️, clean 🧽, and scalable 🏭 solutions.
+                        As a full-stack architect 🛠️, I thrive on pushing production-ready
+                        🚀 code while ensuring an excellent user experience.  I’m always ready
+                        to explore new technologies 🤖 and seamlessly merge them into robust projects 🏗️.
                     </Typography>
                     <Box sx={{
                         display: 'flex',
