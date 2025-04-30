@@ -115,6 +115,7 @@ const Portfolio: React.FC = (): JSX.Element => {
                     display: "flex",
                     flexDirection: "column",
                     gap: 2,
+                    ml: { xs: 0, lg: 8 }
                 }}
             >
                 <Box id="about">
@@ -216,3 +217,4 @@ const Portfolio: React.FC = (): JSX.Element => {
 };
 
 export default Portfolio;
+
