@@ -2,8 +2,10 @@ import React, { JSX, useState } from "react";
 import { Box, Typography, useTheme, useMediaQuery, IconButton, Button, Snackbar } from "@mui/material";
 import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
-import TableOfContents from "./TableOfContents"; // Import TableOfContents
+import TableOfContents from "./TableOfContents";
 import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone, IconHash } from "@tabler/icons-react";
+import { scrollToElementById } from "../utils/scrollUtils";
+import SectionHeader from "./SectionHeader";
 
 let projects = [];
 let experiences = [];
@@ -26,7 +28,7 @@ const Portfolio: React.FC = (): JSX.Element => {
     const [resumeModalOpen, setResumeModalOpen] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-    const scalingVariant = useMediaQuery(theme.breakpoints.down("sm")) ? "subtitle1" : "h5";
+    const scalingVariant = useMediaQuery(theme.breakpoints.down("sm")) ? "subtitle2" : "subtitle1";
 
     const handleResumeModalOpen = () => setResumeModalOpen(true);
     const handleResumeModalClose = () => setResumeModalOpen(false);
@@ -34,12 +36,6 @@ const Portfolio: React.FC = (): JSX.Element => {
 
     const handlePhoneNumberClick = () => {
         navigator.clipboard.writeText("(860) 885-8661");
-        setSnackbarOpen(true);
-    };
-
-    const handleCopyLink = (id: string) => {
-        const url = `${window.location.origin}${window.location.pathname}#${id}`;
-        navigator.clipboard.writeText(url);
         setSnackbarOpen(true);
     };
 
@@ -121,30 +117,10 @@ const Portfolio: React.FC = (): JSX.Element => {
                     gap: 2,
                 }}
             >
-                <Box id="contact">
-                    <Typography
-                        variant="h2"
-                        component="div"
-                        sx={{
-                            textAlign: "center",
-                            paddingBottom: 1,
-                            display: { xs: 'block', sm: 'none' },
-                            color: theme.palette.text.primary,
-                        }}
-                    >
-                        Dylan Mulligan
-                    </Typography>
-                    <Typography variant={scalingVariant} textAlign="center">
-                        Backend Brain 🧠, Frontend Flair 🎉
-                    </Typography>
-                    <Typography variant={scalingVariant} textAlign="center">
-                        Fast, Clean, and Scalable 🏎️
-                    </Typography>
-                    <Typography variant={scalingVariant} textAlign="center">
-                        Full-Stack Architect 🛠️
-                    </Typography>
-                    <Typography variant="body2" textAlign="center">
-                        Pushing to Prod & Hoping for the Best 🚀🔥
+                <Box id="about">
+                    <SectionHeader title="About" anchorId="about" theme={theme} />
+                    <Typography variant={scalingVariant} textAlign="left" sx={{ pl: 2, pr: 2, pt: 1 }}>
+                        Blending flexible backend design 🧱 with frontend flair 🎉, I specialize in fast 🏎️, clean 🧽, and scalable 🏗️ solutions. As a full-stack architect 🛠️, I thrive on pushing production-ready 🚀 code while ensuring an excellent user experience.
                     </Typography>
                     <Box sx={{
                         display: 'flex',
@@ -198,7 +174,7 @@ const Portfolio: React.FC = (): JSX.Element => {
                             <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <IconButton
                                     onClick={handleResumeModalOpen}
-                                    sx={{...chipStyle(false), width: '96px', height: '96px'}}
+                                    sx={{ ...chipStyle(false), width: '96px', height: '96px' }}
                                 >
                                     <IconFileDescription size={64} />
                                 </IconButton>
@@ -207,25 +183,11 @@ const Portfolio: React.FC = (): JSX.Element => {
                     </Box>
                 </Box>
                 <Box id="work-experience">
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                        <Typography variant="h4" textAlign="left">
-                            Work Experience
-                        </Typography>
-                        <IconButton onClick={() => handleCopyLink("work-experience")}>
-                            <IconHash size={20} />
-                        </IconButton>
-                    </Box>
+                    <SectionHeader title="Work Experience" anchorId="work-experience" theme={theme} />
                     <ExpandableList items={experiences ?? []} chipStyle={chipStyle} />
                 </Box>
                 <Box id="projects">
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                        <Typography variant="h4" textAlign="left">
-                            Projects
-                        </Typography>
-                        <IconButton onClick={() => handleCopyLink("projects")}>
-                            <IconHash size={20} />
-                        </IconButton>
-                    </Box>
+                    <SectionHeader title="Projects" anchorId="projects" theme={theme} />
                     <ExpandableList items={projects ?? []} chipStyle={chipStyle} />
                 </Box>
                 <ResumeModal open={resumeModalOpen} onClose={handleResumeModalClose} resumeUrl="https://pub-23ec377c65844af8b2a21a08d41024df.r2.dev/resume.pdf" />
@@ -239,6 +201,8 @@ const Portfolio: React.FC = (): JSX.Element => {
             <Box
                 sx={{
                     display: { md: "none", lg: "block" },
+                    height: "100%",
+                    overflow: "visible",
                 }}
             >
                 <TableOfContents />
@@ -248,4 +212,3 @@ const Portfolio: React.FC = (): JSX.Element => {
 };
 
 export default Portfolio;
-

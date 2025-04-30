@@ -77,15 +77,15 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-start",
-        border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.divider}`,
         borderRadius: 3,
         marginBottom: 1,
         padding: 2,
         paddingBottom: 1.5,
+        border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.divider}`,
         transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         '&:hover': {
             border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.info.main}`,
-            boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.1)',
             transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         },
     });

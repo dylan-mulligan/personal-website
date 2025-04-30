@@ -1,19 +1,14 @@
 import * as React from 'react';
 import {
-    alpha, styled, useTheme, useMediaQuery,
-    Box, AppBar, Toolbar, Button, IconButton,
-    Container, MenuItem, Drawer, Typography
+    styled, useTheme, useMediaQuery,
+    Box, AppBar, Toolbar,
+    Container, Typography
 } from '@mui/material';
 
 import type {} from '@mui/material/themeCssVarsAugmentation';
-
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-
 import { keyframes } from '@mui/system';
 
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
-import LoginModal from './LoginModal';
 import Logo from './Logo';
 
 const wave = keyframes`
@@ -45,52 +40,39 @@ const AnimatedTypography = styled(Typography)<{ animation: string; index: number
 
 export default function NavBar() {
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-    const [loginModalOpen, setLoginModalOpen] = React.useState(false);
 
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-
-    const toggleDrawer = (newOpen: boolean) => () => {
-        setOpen(newOpen);
-    };
-
-    const handleLoginModalOpen = () => {
-        setLoginModalOpen(true);
-    };
-
-    const handleLoginModalClose = () => {
-        setLoginModalOpen(false);
-    };
 
     const StyledToolbar = styled(Toolbar)({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         flexShrink: 0,
-        borderRadius: `calc(${theme.shape.borderRadius}px + 8px)`,
         backdropFilter: 'blur(24px)',
-        border: '1px solid',
-        borderColor: (theme.vars || theme).palette.divider,
-        backgroundColor: theme.vars
-            ? `rgba(${theme.vars.palette.background.defaultChannel} / 0.4)`
-            : alpha(theme.palette.background.default, 0.4),
+        backgroundColor: 'transparent',
         boxShadow: (theme.vars || theme).shadows[1],
         padding: '8px 12px',
+        borderRadius: 0, // Removed border radius
     });
+
 
     return (
         <AppBar
-            position="fixed"
+            position="sticky"
             enableColorOnDark
             sx={{
                 boxShadow: 0,
-                bgcolor: 'transparent',
+                backgroundColor: theme.palette.mode === 'dark' ?
+                    'rgba(27, 27, 27, 0.5)' :
+                    'rgba(255, 255, 255, 0.5)',
                 backgroundImage: 'none',
-                mt: 'calc(var(--template-frame-height, 0px) + 28px)',
-                pr: '0 !important'
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: theme.zIndex.appBar,
             }}
         >
-            <Container maxWidth="xl">
+            <Container maxWidth="xl" disableGutters>
                 <StyledToolbar variant="dense" disableGutters>
                     <Box sx={{ display: 'flex', alignItems: 'center', px: 0 }}>
                         <Logo />
@@ -119,7 +101,6 @@ export default function NavBar() {
                         <ColorModeIconDropdown />
                     </Box>
                 </StyledToolbar>
-                <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
             </Container>
         </AppBar>
     );
