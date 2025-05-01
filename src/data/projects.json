@@ -5,7 +5,7 @@
     "details": "Contributed to both frontend and backend development, focusing on scalability, maintainability, and deployment efficiency. On the frontend, I designed a dedicated marketplace page for KPI selection, which is prepared for integration with role-based access control (RBAC) to ensure secure and tailored user experiences. I also led a MaterialUI overhaul to enhance visual responsiveness, maintainability, and global theming, while transitioning the frontend to TypeScript for improved scalability. Beyond development, I revamped documentation to streamline onboarding and future development. On the full-stack side, I optimized containerized deployments using Docker Compose, simplifying service management and improving deployment consistency across environments.",
     "technologies": ["TypeScript", "MERN", "ELG", "Docker", "Kubernetes"],
     "startDate": "Aug 2024",
-    "endDate": "Present"
+    "endDate": "May 2025"
   },
   {
     "title": "National Vulnerability Intelligence Platform",
@@ -24,11 +24,19 @@
     "endDate": "May 2023"
   },
   {
+    "title": "Crypto & Stock Price Tracker",
+    "subtitle": "Cross-platform app for live cryptocurrency and stock price tracking",
+    "details": "Developed a cross-platform application using React, TypeScript, and Electron to display live cryptocurrency and stock prices. Designed a responsive UI with Material-UI and implemented interactive charts using Recharts. Integrated a free API for fetching live data, utilizing a queue system to handle rate-limiting effectively. Implemented localStorage for storing user preferences, such as selected tickers and stocks. Supported both browser popouts and Electron windows for enhanced user flexibility.",
+    "technologies": ["React", "TypeScript", "Electron", "Material-UI", "Recharts"],
+    "startDate": "Apr 2025",
+    "endDate": "Present"
+  },
+  {
     "title": "Personal Portfolio Website",
     "subtitle": "Responsive personal portfolio website showcasing projects and skills",
     "details": "Developed a personal portfolio website using Create React App with TypeScript for type safety and scalability. Styled the application with Material-UI to ensure a consistent and responsive design across devices. Implemented a deployment workflow using Cloudflare Workers, Pages, and R2 (for S3 API asset hosting), automating the build and deployment process. Followed best practices in code organization and version control to maintain a clean and maintainable codebase. The application supports all common screen sizes and devices, ensuring a seamless user experience on any platform.",
     "technologies": ["TypeScript", "Material-UI", "Cloudflare Workers", "Cloudflare Pages", "Cloudflare R2"],
-    "startDate": "Jan 2025",
+    "startDate": "Feb 2025",
     "endDate": "Present",
     "projectUrl": "https://github.com/dylan-mulligan/personal-website"
   },

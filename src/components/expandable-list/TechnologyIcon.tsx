@@ -7,14 +7,19 @@ import {
     IconBuildingCastle, IconDatabase, IconFeather, IconFiles,
     IconFileUnknown, IconHexagon, IconLayout, IconLetterJ, IconRocket,
     IconSchema, IconShip, IconSpyOff, IconTerminal, IconTestPipe,
-    IconBrandAws
+    IconBrandAws, IconChartBar
 } from '@tabler/icons-react';
+import { Box } from "@mui/material";
+import { ReactComponent as ElectronIcon } from '../../icons/Electron.svg';
+import { useTheme } from "@mui/material/styles";
 
 interface TechnologyIconProps {
     iconName: string;
 }
 
 const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
+    const theme = useTheme();
+
     switch (iconName) {
         case "React":
             return <IconBrandReact />;
@@ -72,6 +77,14 @@ const TechnologyIcon: React.FC<TechnologyIconProps> = ({ iconName }) => {
             return <IconRocket />
         case "AWS":
             return <IconBrandAws />
+        case "Electron":
+            return (
+                <Box sx={{ width: '24px', height: '24px' }}>
+                    <ElectronIcon/>
+                </Box>
+            );
+        case "Recharts":
+            return <IconChartBar />;
         default:
             return <IconFileUnknown />;
     }
