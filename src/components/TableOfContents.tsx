@@ -2,7 +2,7 @@ import React, {JSX} from "react";
 import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { scrollToElementById } from "../utils/scrollUtils";
-import {IconBriefcase2, IconFolders, IconInfoCircleFilled} from "@tabler/icons-react";
+import {IconBriefcase2, IconFolders, IconInfoCircle} from "@tabler/icons-react";
 import { hoverableContainerStyle } from "../shared-theme/styleUtils";
 
 // Subcomponent for Table of Contents Button
@@ -58,7 +58,7 @@ const TableOfContents: React.FC = () => {
             <Typography variant="h6" textAlign="center">
                 Table of Contents
             </Typography>
-            <TOCButton id="about" label="About" icon={<IconInfoCircleFilled/>}/>
+            <TOCButton id="about" label="About" icon={<IconInfoCircle/>}/>
             <TOCButton id="work-experience" label="Work Experience" icon={<IconBriefcase2/>}/>
             <TOCButton id="projects" label="Projects" icon={<IconFolders/>} />
         </Box>
