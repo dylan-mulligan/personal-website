@@ -1,8 +1,9 @@
 import React, {JSX} from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { scrollToElementById } from "../utils/scrollUtils";
 import {IconBriefcase2, IconFolders, IconInfoCircleFilled} from "@tabler/icons-react";
+import { hoverableContainerStyle } from "../shared-theme/styleUtils";
 
 // Subcomponent for Table of Contents Button
 const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element }> = ({ id, label, icon = null }) => {
@@ -31,26 +32,27 @@ const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element }> = (
 
 const TableOfContents: React.FC = () => {
     const theme = useTheme();
+    const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
     return (
         <Box
             sx={{
-                position: "sticky",
+                position: isLargeScreen ? "sticky" : "static",
                 top: 250,
                 verticalAlign: "center",
                 display: "flex",
                 flexDirection: "column",
                 gap: 2,
                 p: 2,
-                mx: 8,
+                mx: 'auto',
                 borderRadius: 2,
-                border: `2px solid ${theme.palette.divider}`,
-                transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                '&:hover': {
-                    border: `2px solid ${theme.palette.info.main}`,
-                    boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
-                    transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
-                },
+                ...hoverableContainerStyle(theme),
+                borderWidth: '2px',
+                borderStyle: 'solid',
+                borderColor: theme.palette.divider,
+                width: "90%",
+                boxSizing: "border-box",
+
             }}
         >
             <Typography variant="h6" textAlign="center">

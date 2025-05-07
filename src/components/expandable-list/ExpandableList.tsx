@@ -7,6 +7,7 @@ import TechnologyChips from './TechnologyChips';
 import ListItemDetails from './ListItemDetails';
 import Typography from "@mui/material/Typography";
 import {IconBrandGithub} from "@tabler/icons-react";
+import { hoverableContainerStyle } from "../../shared-theme/styleUtils";
 
 /**
  * Interface representing an expandable item in the list.
@@ -81,12 +82,11 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
         marginBottom: 1,
         padding: 2,
         paddingBottom: 1.5,
+        ...hoverableContainerStyle(theme),
         border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.divider}`,
-        transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         '&:hover': {
             border: `2px solid ${expandedItem === index ? theme.palette.primary.main : theme.palette.info.main}`,
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.1)',
-            transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
         },
     });
 
@@ -180,3 +180,4 @@ const ExpandableList: React.FC<ExpandableListProps> = (props): JSX.Element => {
 };
 
 export default ExpandableList;
+
