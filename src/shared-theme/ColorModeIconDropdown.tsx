@@ -48,10 +48,11 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
         data-screenshot="toggle-mode"
         onClick={handleClick}
         disableRipple
-        size="small"
+        size="medium"
         aria-controls={open ? 'color-scheme-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
+        sx={{ width: 40, height: 40, ...props.sx }}
         {...props}
       >
         {icon}

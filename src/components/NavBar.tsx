@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
+// Importing the theme augmentation for MUI
 // @ts-ignore
 import type {} from '@mui/material/themeCssVarsAugmentation';
 
@@ -99,13 +100,23 @@ export default function NavBar() {
                 ModalProps={{ keepMounted: true }}
                 sx={{
                     '& .MuiDrawer-paper': {
-                        width: 300,
+                        width: 320,
                         boxSizing: 'border-box',
                         padding: 2,
+                        backgroundColor: theme.palette.mode === 'dark'
+                            ? 'rgba(27,27,27,0.15)'
+                            : 'rgba(255,255,255,0.10)',
+                        backdropFilter: 'blur(8px)',
+                    },
+                    '& .MuiBackdrop-root': {
+                        backgroundColor: theme.palette.mode === 'dark'
+                            ? 'rgba(27,27,27,0.3)'
+                            : 'rgba(255,255,255,0.15)',
+                        backdropFilter: 'none',
                     },
                 }}
             >
-                <Box sx={{ width: 280, p: 2 }}>
+                <Box sx={{ width: '100%', p: 2 }}>
                     <TableOfContents sxOverride={{ mx: 0 }} onItemClick={handleDrawerClose} />
                 </Box>
             </Drawer>
