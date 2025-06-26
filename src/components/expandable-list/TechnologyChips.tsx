@@ -35,6 +35,9 @@ const TechnologyChips: React.FC<TechnologyChipsProps> = ({
                                         orientation={"horizontal"}
                                         timeout={{enter: 300, exit: 350}}
                                         easing={"ease-in-out"}
+                                        sx={{
+                                            color: theme.palette.text.primary
+                                        }}
                                     >
                                         {tech.name}
                                     </Collapse>
@@ -58,3 +61,5 @@ const TechnologyChips: React.FC<TechnologyChipsProps> = ({
 };
 
 export default TechnologyChips;
+
+
