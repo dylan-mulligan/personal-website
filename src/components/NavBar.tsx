@@ -7,7 +7,8 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { keyframes } from '@mui/system';
+// @ts-ignore
+import type {} from '@mui/material/themeCssVarsAugmentation';
 
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
