@@ -6,8 +6,17 @@ import NavBar from './components/NavBar';
 import Portfolio from './components/Portfolio';
 import Footer from './components/Footer';
 import GradientBackground from './components/GradientBackground';
+import { scrollToElementByIdWithOffset } from './utils/scrollUtils';
 
 export default function App(props: { disableCustomTheme?: boolean }) {
+    React.useEffect(() => {
+        if (window.location.hash) {
+            const id = window.location.hash.replace('#', '');
+            setTimeout(() => {
+                scrollToElementByIdWithOffset(id, 80, 'smooth');
+            }, 0);
+        }
+    }, []);
     return (
         <AppTheme {...props}>
             <GradientBackground/>

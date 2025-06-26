@@ -1,16 +1,18 @@
 import React, {JSX} from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { scrollToElementById } from "../utils/scrollUtils";
+import { scrollToElementByIdWithOffset } from "../utils/scrollUtils";
 import {IconBriefcase2, IconFolders, IconInfoCircleFilled} from "@tabler/icons-react";
 import { SxProps, Theme } from "@mui/material/styles";
 
 // Subcomponent for Table of Contents Button
 const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element, onItemClick?: () => void }> = ({ id, label, icon = null, onItemClick }) => {
     const theme = useTheme();
+    const NAVBAR_HEIGHT = 80; // px, keep in sync with scrollUtils
 
     const handleClick = () => {
-        scrollToElementById(id);
+        window.location.hash = id; // Update the URL hash
+        scrollToElementByIdWithOffset(id, NAVBAR_HEIGHT);
         if (onItemClick) onItemClick();
     };
 
