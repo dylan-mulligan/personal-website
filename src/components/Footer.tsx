@@ -16,7 +16,9 @@ export default function Footer() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     gap: { xs: 4, sm: 8 },
-                    paddingBottom: 8
+                    paddingBottom: 8,
+                    marginLeft: 0,
+                    marginRight: 0
                 }}
             >
                 <Box

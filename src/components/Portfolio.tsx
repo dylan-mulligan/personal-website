@@ -3,8 +3,7 @@ import { Box, Typography, useTheme, useMediaQuery, IconButton, Button, Snackbar 
 import ExpandableList from "./expandable-list/ExpandableList";
 import ResumeModal from "./ResumeModal";
 import TableOfContents from "./TableOfContents";
-import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone, IconHash } from "@tabler/icons-react";
-import { scrollToElementById } from "../utils/scrollUtils";
+import { IconBrandGithub, IconBrandLinkedin, IconFileDescription, IconMail, IconPhone } from "@tabler/icons-react";
 import SectionHeader from "./SectionHeader";
 
 let projects = [];
@@ -205,7 +204,7 @@ const Portfolio: React.FC = (): JSX.Element => {
             </Box>
             <Box
                 sx={{
-                    display: { md: "none", lg: "block" },
+                    display: { lg: "block", xs: "none" }, // Only show on large screens (lg and up)
                     height: "100%",
                     overflow: "visible",
                 }}
@@ -217,4 +216,3 @@ const Portfolio: React.FC = (): JSX.Element => {
 };
 
 export default Portfolio;
-

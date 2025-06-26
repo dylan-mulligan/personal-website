@@ -2,46 +2,25 @@ import * as React from 'react';
 import {
     styled, useTheme, useMediaQuery,
     Box, AppBar, Toolbar,
-    Container, Typography
+    Container, Typography,
+    IconButton, Drawer
 } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
-import type {} from '@mui/material/themeCssVarsAugmentation';
 import { keyframes } from '@mui/system';
 
 import ColorModeIconDropdown from '../shared-theme/ColorModeIconDropdown';
 import Logo from './Logo';
-
-const wave = keyframes`
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-`;
-
-const colorChange = keyframes`
-    0%, 100% { color: #ff0000; }
-    16.67% { color: #ff7f00; }
-    33.33% { color: #ffff00; }
-    50% { color: #00ff00; }
-    66.67% { color: #0000ff; }
-    83.33% { color: #8b00ff; }
-`;
-
-const AnimatedTypography = styled(Typography)<{ animation: string; index: number }>(({ theme, animation, index }) => ({
-    display: 'inline-block',
-    '&:hover span': {
-        animationTimingFunction: 'ease-in-out',
-        animationDelay: `${index * 0.15}s`,
-    },
-    '& span': {
-        display: 'inline-block',
-        transition: 'animation 0.5s ease-in-out',
-        animationPlayState: 'paused',
-    },
-}));
+import TableOfContents from './TableOfContents';
 
 export default function NavBar() {
     const theme = useTheme();
-
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const isLargeScreenDown = useMediaQuery(theme.breakpoints.down('lg'));
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
+
+    const handleDrawerOpen = () => setDrawerOpen(true);
+    const handleDrawerClose = () => setDrawerOpen(false);
 
     const StyledToolbar = styled(Toolbar)({
         display: 'flex',
@@ -99,9 +78,36 @@ export default function NavBar() {
                         }}
                     >
                         <ColorModeIconDropdown />
+                        {isLargeScreenDown && (
+                            <IconButton
+                                color="inherit"
+                                aria-label="open table of contents"
+                                onClick={handleDrawerOpen}
+                                sx={{ ml: 1 }}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                        )}
                     </Box>
                 </StyledToolbar>
             </Container>
+            <Drawer
+                anchor="right"
+                open={drawerOpen}
+                onClose={handleDrawerClose}
+                ModalProps={{ keepMounted: true }}
+                sx={{
+                    '& .MuiDrawer-paper': {
+                        width: 300,
+                        boxSizing: 'border-box',
+                        padding: 2,
+                    },
+                }}
+            >
+                <Box sx={{ width: 280, p: 2 }}>
+                    <TableOfContents sxOverride={{ mx: 0 }} onItemClick={handleDrawerClose} />
+                </Box>
+            </Drawer>
         </AppBar>
     );
 }

@@ -3,16 +3,22 @@ import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { scrollToElementById } from "../utils/scrollUtils";
 import {IconBriefcase2, IconFolders, IconInfoCircleFilled} from "@tabler/icons-react";
+import { SxProps, Theme } from "@mui/material/styles";
 
 // Subcomponent for Table of Contents Button
-const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element }> = ({ id, label, icon = null }) => {
+const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element, onItemClick?: () => void }> = ({ id, label, icon = null, onItemClick }) => {
     const theme = useTheme();
+
+    const handleClick = () => {
+        scrollToElementById(id);
+        if (onItemClick) onItemClick();
+    };
 
     return (
         <Button
             variant="contained"
             color={"inherit"}
-            onClick={() => scrollToElementById(id)}
+            onClick={handleClick}
             startIcon={icon}
             sx={{
                 backgroundColor: theme.palette.mode === "dark" ? "rgba(27,27,27,0.5)" : "rgba(255,255,255,0.5)",
@@ -29,7 +35,12 @@ const TOCButton: React.FC<{ id: string; label: string, icon?: JSX.Element }> = (
     );
 };
 
-const TableOfContents: React.FC = () => {
+interface TableOfContentsProps {
+    sxOverride?: SxProps<Theme>;
+    onItemClick?: () => void;
+}
+
+const TableOfContents: React.FC<TableOfContentsProps> = ({ sxOverride, onItemClick }) => {
     const theme = useTheme();
 
     return (
@@ -42,7 +53,7 @@ const TableOfContents: React.FC = () => {
                 flexDirection: "column",
                 gap: 2,
                 p: 2,
-                mx: 8,
+                mx: { xs: 0, lg: 8 },
                 borderRadius: 2,
                 border: `2px solid ${theme.palette.divider}`,
                 transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
@@ -51,17 +62,17 @@ const TableOfContents: React.FC = () => {
                     boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
                     transition: 'border 0.3s ease-in-out, box-shadow 0.3s ease-in-out',
                 },
+                ...sxOverride,
             }}
         >
             <Typography variant="h6" textAlign="center">
                 Table of Contents
             </Typography>
-            <TOCButton id="about" label="About" icon={<IconInfoCircleFilled/>}/>
-            <TOCButton id="work-experience" label="Work Experience" icon={<IconBriefcase2/>}/>
-            <TOCButton id="projects" label="Projects" icon={<IconFolders/>} />
+            <TOCButton id="about" label="About" icon={<IconInfoCircleFilled/>} onItemClick={onItemClick}/>
+            <TOCButton id="work-experience" label="Work Experience" icon={<IconBriefcase2/>} onItemClick={onItemClick}/>
+            <TOCButton id="projects" label="Projects" icon={<IconFolders/>} onItemClick={onItemClick} />
         </Box>
     );
 };
 
 export default TableOfContents;
-
